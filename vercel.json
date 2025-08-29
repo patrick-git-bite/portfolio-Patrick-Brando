@@ -1,7 +1,14 @@
 {
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "@vercel/node" // <-- Formato OFICIAL e CORRETO
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 }
