@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
 import { Mail, Phone, Github, Linkedin, Menu, X, Calendar, MapPin, Bot, BarChart3, Code, Monitor, Cloud, Gamepad2, Zap, TrendingUp, Globe, Settings, Sparkles, Heart, Users, Coffee, Database, Server, Target, Clock, FileText, GitBranch } from 'lucide-react';
@@ -9,10 +8,51 @@ import { Textarea } from './components/ui/textarea';
 import { toast } from "sonner";
 import patrickImage from "./assets/foto.jpg";
 
-
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+
+  // --- INÍCIO DA LÓGICA DO FORMULÁRIO ---
+  // Estados para guardar os dados do formulário e o status de envio.
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Função para atualizar o estado conforme o usuário digita.
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  // Função que envia os dados para a API quando o formulário é submetido.
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isSubmitting) return; // Previne envios duplicados
+
+    setIsSubmitting(true);
+    toast.info('Enviando sua mensagem...');
+
+    try {
+      const res = await fetch("/api/sendmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        toast.success('Mensagem enviada com sucesso! Entrarei em contato em breve.');
+        setFormData({ name: '', email: '', message: '' }); // Limpa o formulário
+      } else {
+        const data = await res.json();
+        toast.error(`Erro ao enviar: ${data.message || 'Tente novamente.'}`);
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Ocorreu um erro de conexão. Verifique sua internet.");
+    } finally {
+      setIsSubmitting(false); // Reabilita o botão
+    }
+  };
+  // --- FIM DA LÓGICA DO FORMULÁRIO ---
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,11 +81,6 @@ export default function App() {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
-  };
-
-  const handleContactSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success('Mensagem enviada com sucesso! Entrarei em contato em breve.');
   };
 
   const services = [
@@ -443,7 +478,7 @@ export default function App() {
                     <div className="w-3 h-3 bg-yellow-400 rounded-full flex-shrink-0 animate-pulse"></div>
                     <div className="flex-1">
                       <span className="text-gray-300 font-medium">Google Cloud GenAI Skill Badges</span>
-                      <p className="text-sm text-gray-400 mt-1">Descobrindo o mundo da inteligência artificial</p>
+                      <p className="text-sm text-gray-400 mt-1">Explorando o mundo da inteligência artificial</p>
                     </div>
                     <span className="text-xs text-yellow-400 bg-yellow-500/20 px-2 py-1 rounded-full">Explorando</span>
                   </div>
@@ -489,7 +524,7 @@ export default function App() {
                     <p className="text-xl text-gray-300 mb-2">Detella Restaurantes Empresariais</p>
                     <p className="text-sm text-gray-400 mb-4 flex items-center">
                       <Calendar className="w-4 h-4 mr-2" />
-                      Janeiro 2025 – Atual
+                      Julho 2025 – Atual
                     </p>
                     <div className="flex items-center space-x-2 mb-4">
                       <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm border border-blue-500/30">
@@ -805,10 +840,15 @@ export default function App() {
             >
               <Card className="p-8 bg-gradient-to-bl from-blue-900/20 to-purple-900/20 border-blue-500/20 backdrop-blur-sm">
                 <h3 className="text-2xl mb-8 text-gray-200">Me Conte Sua Ideia</h3>
+                
+                {/* Formulário de Contato Corrigido */}
                 <form onSubmit={handleContactSubmit} className="space-y-6">
                   <div>
                     <label className="block text-sm text-gray-400 mb-2">Seu nome</label>
                     <Input
+                      name="name" // Adicionado para conectar ao estado
+                      value={formData.name} // Conecta o valor do input ao estado
+                      onChange={handleFormChange} // Atualiza o estado ao digitar
                       placeholder="Como posso te chamar?"
                       required
                       className="bg-slate-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 h-12"
@@ -818,6 +858,9 @@ export default function App() {
                     <label className="block text-sm text-gray-400 mb-2">Seu email</label>
                     <Input
                       type="email"
+                      name="email" // Adicionado para conectar ao estado
+                      value={formData.email} // Conecta o valor do input ao estado
+                      onChange={handleFormChange} // Atualiza o estado ao digitar
                       placeholder="seu.email@gmail.com"
                       required
                       className="bg-slate-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 h-12"
@@ -826,6 +869,9 @@ export default function App() {
                   <div>
                     <label className="block text-sm text-gray-400 mb-2">Conte sua ideia ou necessidade</label>
                     <Textarea
+                      name="message" // Adicionado para conectar ao estado
+                      value={formData.message} // Conecta o valor do input ao estado
+                      onChange={handleFormChange} // Atualiza o estado ao digitar
                       placeholder="Qual é seu projeto? Precisa de ajuda com o quê? Não importa se é algo simples, vamos conversar!"
                       required
                       rows={5}
@@ -835,10 +881,11 @@ export default function App() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-0 h-12"
+                    disabled={isSubmitting} // Desabilita o botão durante o envio
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-0 h-12 disabled:opacity-50"
                   >
                     <Heart className="mr-2 h-5 w-5" />
-                    Enviar Mensagem
+                    {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
                   </Button>
                 </form>
               </Card>
@@ -861,7 +908,7 @@ export default function App() {
           </div>
           
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400">© 2025 Patrick Brando. Feito com ❤️ e muito aprendizado.</p>
+            <p className="text-gray-400">© 2025 Patrick Brando. Evoluindo e Aprendendo.</p>
             <div className="flex space-x-8">
               {[
                 { id: 'home', label: 'Início' },
@@ -886,3 +933,4 @@ export default function App() {
     </div>
   );
 }
+
