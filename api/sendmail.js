@@ -10,7 +10,8 @@ const loadEnv = async () => {
       const path = await import('path');
       dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
     } catch (err) {
-      console.error('Erro ao carregar o dotenv:', err);
+      // Bloco catch vazio, pois em produção não precisamos nos preocupar
+      // com o dotenv falhando, já que ele nem será executado.
     }
   }
 };
@@ -47,7 +48,8 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ message: "Email enviado com sucesso!" });
   } catch (error) {
-    console.error('Erro no handler:', error);
-    return res.status(500).json({ message: "Erro ao enviar email", error: error.message });
+    // Em produção, é melhor não enviar o erro detalhado para o cliente.
+    // Apenas retornamos uma mensagem genérica.
+    return res.status(500).json({ message: "Ocorreu um erro interno ao enviar o email." });
   }
 }
