@@ -7,6 +7,7 @@ import { Input } from './components/ui/input';
 import { Textarea } from './components/ui/textarea';
 import { toast } from "sonner";
 import patrickImage from "./assets/foto.jpg";
+import { Analytics } from "@vercel/analytics/next"
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -9,7 +9,6 @@ const loadEnv = async () => {
       const dotenv = await import('dotenv');
       const path = await import('path');
       dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
-      console.log('Variáveis de ambiente locais carregadas com sucesso.');
     } catch (err) {
       console.error('Erro ao carregar o dotenv:', err);
     }
