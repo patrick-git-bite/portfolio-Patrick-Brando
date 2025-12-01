@@ -303,90 +303,91 @@ const timelineData = [
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-                        <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center md:text-left relative"
-          >
-            <div className="mb-8">
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-4xl md:text-6xl mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent"
-              >
-                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    <div className="absolute -top-40 -right-32 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-    <div className="absolute -bottom-40 -left-32 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+<section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 md:pt-0">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+    
+    {/* Texto - ORDEM 2 no mobile, 1 no desktop */}
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-center md:text-left relative order-2 md:order-1"
+    >
+      <div className="mb-6 md:mb-8">
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 md:mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent"
+        >
+          Patrick Brando
+        </motion.h1>
+        
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-4 md:mb-6"
+        >
+          Desenvolvedor e Analista de Sistemas
+        </motion.h2>
+        
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="text-base sm:text-lg text-gray-400 mb-6 md:mb-8 leading-relaxed"
+        >
+          Em constante aprendizado, apaixonado por tecnologia e sempre disposto a ajudar 
+          pequenos negócios e empreendedores a crescerem com soluções digitais simples e eficazes.
+        </motion.p>
+      </div>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8 }}
+        className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start"
+      >
+        <Button 
+          size="lg"
+          className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-0 shadow-lg shadow-blue-500/25 text-sm sm:text-base"
+          onClick={() => scrollToSection('services')}
+        >
+          <Heart className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+          Como Posso Ajudar
+        </Button>
+        <Button 
+          size="lg"
+          variant="outline"
+          className="border-purple-500/50 text-purple-300 hover:bg-purple-500/10 text-sm sm:text-base"
+          onClick={() => scrollToSection('contact')}
+        >
+          <Coffee className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+          Vamos Conversar
+        </Button>
+      </motion.div>
+    </motion.div>
+
+    {/* Imagem - ORDEM 1 no mobile, 2 no desktop */}
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8, delay: 0.4 }}
+      className="flex justify-center order-1 md:order-2 mb-8 md:mb-0"
+    >
+      <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-20 scale-110"></div>
+        <img
+          src={patrickImage}
+          alt="Patrick Brando"
+          className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full object-cover border-4 border-gradient-to-r from-blue-400 to-purple-400 shadow-2xl shadow-blue-500/20"
+        />
+      </div>
+    </motion.div>
+    
   </div>
-                Patrick Brando
-              </motion.h1>
-              <motion.h2 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="text-xl md:text-2xl text-gray-300 mb-6"
-              >
-                Desenvolvedor e Analista de Sistemas
-              </motion.h2>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="text-lg text-gray-400 mb-8 leading-relaxed"
-              >
-                Em constante aprendizado, apaixonado por tecnologia e sempre disposto a ajudar 
-                pequenos negócios e empreendedores a crescerem com soluções digitais simples e eficazes.
-              </motion.p>
-            </div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
-            >
-              <Button 
-                size="lg"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-0 shadow-lg shadow-blue-500/25"
-                onClick={() => scrollToSection('services')}
-              >
-                <Heart className="mr-2 h-5 w-5" />
-                Como Posso Ajudar
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-purple-500/50 text-purple-300 hover:bg-purple-500/10"
-                onClick={() => scrollToSection('contact')}
-              >
-                <Coffee className="mr-2 h-5 w-5" />
-                Vamos Conversar
-              </Button>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex justify-center"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-20 scale-110"></div>
-              <img
-                src={patrickImage}
-                alt="Patrick Brando"
-                className="relative w-80 h-80 rounded-full object-cover border-4 border-gradient-to-r from-blue-400 to-purple-400 shadow-2xl shadow-blue-500/20"
-              />
-            </div>
-          </motion.div>
-        </div>
-      </section>
+</section>
 
       {/* About Section */}
       <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -655,29 +656,83 @@ const timelineData = [
         </div>
       </section>
 
-             {/* Experience jornada */}
-<section id="timeline" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900/50 to-blue-950/30">
+             {/* Experience jornada - REFATORADA */}
+<section id="timeline" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900/50 to-blue-950/30">
   <div className="max-w-6xl mx-auto">
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="text-center mb-16"
+      className="text-center mb-8 sm:mb-12 lg:mb-16"
     >
-      <h2 className="text-3xl md:text-4xl mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4 lg:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
         Minha Jornada
       </h2>
-      <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-        Da descoberta da tecnologia às conquistas profissionais - uma linha do tempo interativa
+      <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-4">
+        Da descoberta da tecnologia às conquistas profissionais
       </p>
-      <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mt-6"></div>
+      <div className="w-16 sm:w-20 lg:w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mt-4 sm:mt-6"></div>
     </motion.div>
 
-    <div className="relative">
+    {/* Timeline para mobile */}
+    <div className="md:hidden">
+      <div className="relative pl-8">
+        {/* Linha vertical para mobile */}
+        <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500/20 via-blue-500/40 to-purple-500/20"></div>
+        
+        <div className="space-y-6">
+          {timelineData.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="relative"
+            >
+              {/* Ponto na linha */}
+              <div className="absolute left-[-28px] top-6">
+                <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 border-white bg-gradient-to-r ${item.color} shadow-lg`}></div>
+              </div>
+
+              {/* Card */}
+              <Card className={`p-4 sm:p-5 bg-gradient-to-br ${item.color}/20 border-l-4 border-${item.color.split('-')[1]}-500/50 backdrop-blur-sm`}>
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${item.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <span className="text-xl sm:text-2xl font-bold text-gray-200">{item.year}</span>
+                      <span className="text-xs px-2 py-1 bg-slate-800/50 text-cyan-300 rounded-full border border-cyan-500/30">
+                        {index === 1 ? "Atual" : index > 1 ? "Futuro" : "Passado"}
+                      </span>
+                    </div>
+                    <h3 className="text-lg sm:text-xl text-gray-100 mb-1 sm:mb-2">{item.title}</h3>
+                    <p className="text-sm sm:text-base text-gray-300 mb-3">{item.description}</p>
+                    <div className="space-y-1">
+                      {item.achievements.map((achievement, achievementIndex) => (
+                        <div key={achievementIndex} className="flex items-start space-x-2">
+                          <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-1.5"></div>
+                          <span className="text-xs sm:text-sm text-gray-400 flex-1">{achievement}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Timeline para desktop */}
+    <div className="hidden md:block relative">
       {/* Linha central */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cyan-500/20 via-blue-500/40 to-purple-500/20"></div>
+      <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-cyan-500/20 via-blue-500/40 to-purple-500/20"></div>
       
-      <div className="space-y-12">
+      <div className="space-y-8 lg:space-y-12">
         {timelineData.map((item, index) => (
           <motion.div
             key={index}
@@ -688,26 +743,26 @@ const timelineData = [
             className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
           >
             {/* Conteúdo */}
-            <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12' : 'pl-12'}`}>
-              <Card className={`p-6 bg-gradient-to-br ${item.color}/20 border-${item.color.split('-')[1]}-500/30 backdrop-blur-sm hover:scale-105 transition-all duration-300`}>
+            <div className={`w-1/2 ${index % 2 === 0 ? 'pr-6 lg:pr-12' : 'pl-6 lg:pl-12'}`}>
+              <Card className={`p-5 lg:p-6 bg-gradient-to-br ${item.color}/20 border-${item.color.split('-')[1]}-500/30 backdrop-blur-sm hover:scale-105 transition-all duration-300`}>
                 <div className="flex items-start space-x-4">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${item.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                    <item.icon className="w-6 h-6 text-white" />
+                  <div className={`w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r ${item.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                    <item.icon className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-2">
-                      <span className="text-2xl font-bold text-gray-200">{item.year}</span>
-                      <span className="text-sm px-2 py-1 bg-slate-800/50 text-cyan-300 rounded-full border border-cyan-500/30">
+                      <span className="text-xl lg:text-2xl font-bold text-gray-200">{item.year}</span>
+                      <span className="text-xs lg:text-sm px-2 py-1 bg-slate-800/50 text-cyan-300 rounded-full border border-cyan-500/30">
                         {index === 1 ? "Atual" : index > 1 ? "Futuro" : "Passado"}
                       </span>
                     </div>
-                    <h3 className="text-xl text-gray-100 mb-2">{item.title}</h3>
-                    <p className="text-gray-300 mb-4">{item.description}</p>
-                    <div className="space-y-2">
+                    <h3 className="text-lg lg:text-xl text-gray-100 mb-2">{item.title}</h3>
+                    <p className="text-sm lg:text-base text-gray-300 mb-3 lg:mb-4">{item.description}</p>
+                    <div className="space-y-1 lg:space-y-2">
                       {item.achievements.map((achievement, achievementIndex) => (
                         <div key={achievementIndex} className="flex items-center space-x-2">
                           <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></div>
-                          <span className="text-sm text-gray-400">{achievement}</span>
+                          <span className="text-xs lg:text-sm text-gray-400">{achievement}</span>
                         </div>
                       ))}
                     </div>
@@ -718,7 +773,7 @@ const timelineData = [
 
             {/* Ponto na linha */}
             <div className="absolute left-1/2 transform -translate-x-1/2">
-              <div className={`w-6 h-6 rounded-full border-4 border-white bg-gradient-to-r ${item.color} shadow-lg shadow-${item.color.split('-')[1]}-500/25`}></div>
+              <div className={`w-4 h-4 lg:w-6 lg:h-6 rounded-full border-2 lg:border-4 border-white bg-gradient-to-r ${item.color} shadow-lg`}></div>
             </div>
 
             {/* Espaço vazio */}
@@ -733,19 +788,19 @@ const timelineData = [
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="text-center mt-16"
+      className="text-center mt-8 sm:mt-12 lg:mt-16"
     >
-      <Card className="p-8 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border-cyan-500/20 backdrop-blur-sm max-w-2xl mx-auto">
-        <h3 className="text-2xl text-cyan-300 mb-4">Próxima Parada: Sua Empresa?</h3>
-        <p className="text-gray-300 mb-6">
+      <Card className="p-6 sm:p-8 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border-cyan-500/20 backdrop-blur-sm max-w-2xl mx-auto">
+        <h3 className="text-xl sm:text-2xl text-cyan-300 mb-3 sm:mb-4">Próxima Parada: Sua Empresa?</h3>
+        <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6">
           Estou pronto para minha próxima oportunidade profissional. Vamos construir algo incrível juntos?
         </p>
         <Button
-          size="lg"
-          className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 border-0"
+          size="sm"
+          className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 border-0 text-sm sm:text-base"
           onClick={() => scrollToSection('contact')}
         >
-          <TrendingUp className="mr-2 h-5 w-5" />
+          <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
           Vamos Conversar
         </Button>
       </Card>
@@ -1018,23 +1073,24 @@ const timelineData = [
       </section>
 
       {/* Projects Section */}
-<section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900/50 to-blue-900/20">
+<section id="projects" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900/50 to-blue-900/20">
   <div className="max-w-6xl mx-auto">
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="text-center mb-16"
+      className="text-center mb-8 sm:mb-12 lg:mb-16"
     >
-      <h2 className="text-3xl md:text-4xl mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
         Projetos em Destaque
       </h2>
-      <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+      <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto px-4">
         Do conceito à implementação: soluções reais para desafios reais
       </p>
     </motion.div>
 
-    <div className="grid md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+      
       {/* AssetWise - Projeto Destaque */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -1045,208 +1101,176 @@ const timelineData = [
       >
         <Card className="bg-gradient-to-br from-blue-600/20 to-green-600/20 border-blue-500/30 backdrop-blur-sm overflow-hidden group cursor-pointer hover:scale-105 transition-transform duration-300">
           <div className="flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 p-8 flex flex-col justify-between">
+            {/* Conteúdo */}
+            <div className="lg:w-1/2 p-4 sm:p-6 lg:p-8 flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  <span className="text-green-400 text-sm font-medium">PROJETO DESTAQUE</span>
+                <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full"></div>
+                  <span className="text-green-400 text-xs sm:text-sm font-medium">PROJETO DESTAQUE</span>
                 </div>
-                <h3 className="text-2xl lg:text-3xl text-blue-300 mb-4">AssetWise</h3>
-                <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                  Sistema completo de gestão de ativos de TI desenvolvido para empresa real. 
-                  Dashboard intuitivo, controle de ativos, movimentações e diagnóstico por IA integrada.
+                <h3 className="text-xl sm:text-2xl lg:text-3xl text-blue-300 mb-3 sm:mb-4">AssetWise</h3>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-4 sm:mb-6 leading-relaxed">
+                  Sistema completo de gestão de ativos de TI desenvolvido para empresa real.
                 </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="px-3 py-1 text-sm bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30">Next.js</span>
-                  <span className="px-3 py-1 text-sm bg-cyan-500/20 text-cyan-300 rounded-full border border-cyan-500/30">TypeScript</span>
-                  <span className="px-3 py-1 text-sm bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30">Firebase</span>
-                  <span className="px-3 py-1 text-sm bg-green-500/20 text-green-300 rounded-full border border-green-500/30">Google AI</span>
-                  <span className="px-3 py-1 text-sm bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30">Tailwind</span>
+                <div className="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6">
+                  <span className="px-2 py-1 text-xs sm:text-sm bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30">Next.js</span>
+                  <span className="px-2 py-1 text-xs sm:text-sm bg-cyan-500/20 text-cyan-300 rounded-full border border-cyan-500/30">TypeScript</span>
+                  <span className="px-2 py-1 text-xs sm:text-sm bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30">Firebase</span>
+                  <span className="px-2 py-1 text-xs sm:text-sm bg-green-500/20 text-green-300 rounded-full border border-green-500/30">Google AI</span>
                 </div>
               </div>
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                 <Button 
-                  size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 border-0"
+                  size="sm"
+                  className="bg-blue-600 hover:bg-blue-700 border-0 text-xs sm:text-sm"
                   onClick={() => openProjectModal('assetwise')}
                 >
-                  <Eye className="w-5 h-5 mr-2" />
-                  Ver Detalhes Técnicos
+                  <Eye className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                  Ver Detalhes
                 </Button>
                 <Button 
-                  size="lg"
+                  size="sm"
                   variant="outline"
-                  className="border-blue-500/50 text-blue-300 hover:bg-blue-500/10"
+                  className="border-blue-500/50 text-blue-300 hover:bg-blue-500/10 text-xs sm:text-sm"
                   onClick={() => toast.info('Projeto desenvolvido para empresa específica')}
                 >
-                  <Lock className="w-5 h-5 mr-2" />
+                  <Lock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                   Código Privado
                 </Button>
               </div>
             </div>
-            <div className="lg:w-1/2 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center p-8">
+            
+            {/* Imagem/Ícone */}
+            <div className="lg:w-1/2 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center p-4 sm:p-6 lg:p-8 order-first lg:order-last">
               <div className="text-center">
-                <Server className="w-20 h-20 text-white mb-4 mx-auto" />
-                <p className="text-white/80 text-sm">Dashboard de Gestão de Ativos</p>
-                <p className="text-white/60 text-xs mt-2">Sistema empresarial completo</p>
+                <Server className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 text-white mb-2 sm:mb-4 mx-auto" />
+                <p className="text-white/80 text-xs sm:text-sm">Dashboard de Gestão</p>
+                <p className="text-white/60 text-xs mt-1">Sistema empresarial</p>
               </div>
             </div>
           </div>
         </Card>
       </motion.div>
 
-      {/* Flux Finance */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-      >
-        <Card className="bg-gradient-to-br from-green-600/20 to-teal-600/20 border-green-500/30 backdrop-blur-sm overflow-hidden group cursor-pointer h-full flex flex-col hover:scale-105 transition-transform duration-300">
-          <div className="h-48 bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <TrendingUp className="w-16 h-16 text-white" />
-          </div>
-          <div className="p-6 flex-1 flex flex-col">
-            <h3 className="text-xl text-green-300 mb-2">Flux Finance</h3>
-            <p className="text-gray-300 mb-4 flex-1">Plataforma multi-usuário para gestão financeira pessoal com insights inteligentes, categorização automática e análise de investimentos.</p>
-            <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-3 py-1 text-sm bg-green-500/20 text-green-300 rounded-full border border-green-500/30">Next.js</span>
-              <span className="px-3 py-1 text-sm bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30">Firebase</span>
-              <span className="px-3 py-1 text-sm bg-cyan-500/20 text-cyan-300 rounded-full border border-cyan-500/30">TypeScript</span>
-              <span className="px-3 py-1 text-sm bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30">Multi-usuário</span>
+      {/* Projetos menores - Grid 2x2 */}
+      {[
+        {
+          id: 'fluxfinance',
+          title: 'Flux Finance',
+          description: 'Plataforma multi-usuário para gestão financeira pessoal com insights inteligentes.',
+          icon: TrendingUp,
+          color: 'from-green-500 to-teal-500',
+          bgColor: 'from-green-600/20 to-teal-600/20',
+          borderColor: 'border-green-500/30',
+          tags: ['Next.js', 'Firebase', 'TypeScript', 'Multi-usuário'],
+          github: 'https://github.com/patrick-git-bite/Flux-Finance'
+        },
+        {
+          id: 'rpa',
+          title: 'Automação RPA',
+          description: 'Sistema que automatiza baixa de documentos via e-mail com Python e UiPath.',
+          icon: Bot,
+          color: 'from-blue-500 to-cyan-500',
+          bgColor: 'from-blue-600/20 to-cyan-600/20',
+          borderColor: 'border-blue-500/30',
+          tags: ['Python', 'UiPath', 'Automação', 'Outlook'],
+          github: 'https://github.com/patrick-git-bite/RPA'
+        },
+        {
+          id: 'analise',
+          title: 'Análise Financeira',
+          description: 'Ferramenta para análise comparativa de dados financeiros entre períodos.',
+          icon: BarChart3,
+          color: 'from-orange-500 to-red-500',
+          bgColor: 'from-orange-600/20 to-red-600/20',
+          borderColor: 'border-orange-500/30',
+          tags: ['Python', 'Pandas', 'Matplotlib', 'Data Analysis'],
+          github: 'https://github.com/patrick-git-bite/Analise-financeiro'
+        }
+      ].map((project, index) => (
+        <motion.div
+          key={project.id}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 + (index * 0.1) }}
+        >
+          <Card className={`bg-gradient-to-br ${project.bgColor} ${project.borderColor} backdrop-blur-sm overflow-hidden group cursor-pointer h-full flex flex-col hover:scale-105 transition-transform duration-300`}>
+            {/* Cabeçalho com cor */}
+            <div className={`h-32 sm:h-40 bg-gradient-to-r ${project.color} flex items-center justify-center relative overflow-hidden`}>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              <project.icon className="w-10 h-10 sm:w-14 sm:h-14 text-white" />
             </div>
-            <div className="flex gap-2">
-              <Button 
-                size="sm" 
-                className="flex-1 bg-green-600 hover:bg-green-700 border-0"
-                onClick={() => openProjectModal('fluxfinance')}
-              >
-                <Eye className="w-4 h-4 mr-2" />
-                Detalhes Técnicos
-              </Button>
-              <Button 
-                size="sm" 
-                variant="outline"
-                className="flex-1 border-green-500/50 text-green-300 hover:bg-green-500/10"
-                onClick={() => window.open('https://github.com/patrick-git-bite/Flux-Finance', '_blank')}
-              >
-                <Github className="w-4 h-4 mr-2" />
-                Código
-              </Button>
+            
+            {/* Conteúdo */}
+            <div className="p-4 sm:p-6 flex-1 flex flex-col">
+              <h3 className="text-lg sm:text-xl text-white mb-2 sm:mb-3">{project.title}</h3>
+              <p className="text-sm text-gray-300 mb-3 sm:mb-4 flex-1">
+                {project.description}
+              </p>
+              
+              <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
+                {project.tags.map((tag, tagIndex) => (
+                  <span
+                    key={tagIndex}
+                    className="px-2 py-1 text-xs bg-black/20 text-white/80 rounded-full border border-white/20"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              
+              <div className="flex gap-2 mt-auto">
+                <Button 
+                  size="sm"
+                  className="flex-1 bg-white/10 hover:bg-white/20 border-0 text-xs sm:text-sm"
+                  onClick={() => openProjectModal(project.id)}
+                >
+                  <Eye className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                  Detalhes
+                </Button>
+                <Button 
+                  size="sm"
+                  variant="outline"
+                  className="flex-1 border-white/30 text-white hover:bg-white/10 text-xs sm:text-sm"
+                  onClick={() => window.open(project.github, '_blank')}
+                >
+                  <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                  Código
+                </Button>
+              </div>
             </div>
-          </div>
-        </Card>
-      </motion.div>
-
-      {/* RPA */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3 }}
-      >
-        <Card className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border-blue-500/30 backdrop-blur-sm overflow-hidden group cursor-pointer h-full flex flex-col hover:scale-105 transition-transform duration-300">
-          <div className="h-48 bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <Bot className="w-16 h-16 text-white" />
-          </div>
-          <div className="p-6 flex-1 flex flex-col">
-            <h3 className="text-xl text-blue-300 mb-2">Automação RPA</h3>
-            <p className="text-gray-300 mb-4 flex-1">Sistema que automatiza baixa de documentos via e-mail, integrando Python com UiPath para otimizar fluxos operacionais empresariais.</p>
-            <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-3 py-1 text-sm bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30">Python</span>
-              <span className="px-3 py-1 text-sm bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30">UiPath</span>
-              <span className="px-3 py-1 text-sm bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30">Automação</span>
-              <span className="px-3 py-1 text-sm bg-green-500/20 text-green-300 rounded-full border border-green-500/30">Outlook</span>
-            </div>
-            <div className="flex gap-2">
-              <Button 
-                size="sm" 
-                className="flex-1 bg-blue-600 hover:bg-blue-700 border-0"
-                onClick={() => openProjectModal('rpa')}
-              >
-                <Eye className="w-4 h-4 mr-2" />
-                Detalhes Técnicos
-              </Button>
-              <Button 
-                size="sm" 
-                variant="outline"
-                className="flex-1 border-blue-500/50 text-blue-300 hover:bg-blue-500/10"
-                onClick={() => window.open('https://github.com/patrick-git-bite/RPA', '_blank')}
-              >
-                <Github className="w-4 h-4 mr-2" />
-                Código
-              </Button>
-            </div>
-          </div>
-        </Card>
-      </motion.div>
-
-      {/* Análise Financeira */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.4 }}
-      >
-        <Card className="bg-gradient-to-br from-orange-600/20 to-red-600/20 border-orange-500/30 backdrop-blur-sm overflow-hidden group cursor-pointer h-full flex flex-col hover:scale-105 transition-transform duration-300">
-          <div className="h-48 bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <BarChart3 className="w-16 h-16 text-white" />
-          </div>
-          <div className="p-6 flex-1 flex flex-col">
-            <h3 className="text-xl text-orange-300 mb-2">Análise Financeira</h3>
-            <p className="text-gray-300 mb-4 flex-1">Ferramenta avançada para análise comparativa de dados financeiros entre períodos, com geração de relatórios em Excel/PDF.</p>
-            <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-3 py-1 text-sm bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30">Python</span>
-              <span className="px-3 py-1 text-sm bg-green-500/20 text-green-300 rounded-full border border-green-500/30">Pandas</span>
-              <span className="px-3 py-1 text-sm bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30">Matplotlib</span>
-              <span className="px-3 py-1 text-sm bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30">Data Analysis</span>
-            </div>
-            <div className="flex gap-2">
-              <Button 
-                size="sm" 
-                className="flex-1 bg-orange-600 hover:bg-orange-700 border-0"
-                onClick={() => openProjectModal('analise')}
-              >
-                <Eye className="w-4 h-4 mr-2" />
-                Detalhes Técnicos
-              </Button>
-              <Button 
-                size="sm" 
-                variant="outline"
-                className="flex-1 border-orange-500/50 text-orange-300 hover:bg-orange-500/10"
-                onClick={() => window.open('https://github.com/patrick-git-bite/Analise-financeiro', '_blank')}
-              >
-                <Github className="w-4 h-4 mr-2" />
-                Código
-              </Button>
-            </div>
-          </div>
-        </Card>
-      </motion.div>
+          </Card>
+        </motion.div>
+      ))}
     </div>
   </div>
 </section>
 
-{/* Project Modals */}
+{/* Project Modals - Refatorado para Responsividade */}
 {selectedProject && (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
+    // Fundo fixo e com efeito, ocupa toda a tela
     className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
     onClick={closeProjectModal}
   >
     <motion.div
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      className="bg-slate-900 rounded-2xl border border-blue-500/30 max-w-6xl w-full max-h-[90vh] overflow-y-auto"
+      // Tamanho Responsivo: max-w-xl (mobile) -> max-w-6xl (desktop)
+      className="bg-slate-900 rounded-2xl border border-blue-500/30 max-w-xl lg:max-w-6xl w-full max-h-[90vh] overflow-y-auto"
       onClick={(e) => e.stopPropagation()}
     >
-      <div className="p-8">
+      {/* Padding Responsivo: p-4 (mobile) -> md:p-8 (desktop) */}
+      <div className="p-4 md:p-8">
+        
+        {/* Cabeçalho do Modal */}
         <div className="flex justify-between items-start mb-6">
-          <h3 className="text-2xl text-blue-300">
+          {/* Título - Text-xl (mobile) -> text-2xl (desktop) */}
+          <h3 className="text-xl md:text-2xl text-blue-300 pr-4"> 
+            {/* O PR-4 é para evitar que o título encoste no botão de fechar no mobile */}
             {selectedProject === 'assetwise' && 'AssetWise - Sistema de Gestão de Ativos de TI'}
             {selectedProject === 'fluxfinance' && 'Flux Finance - Plataforma Financeira Multi-usuário'}
             {selectedProject === 'rpa' && 'Automação RPA - Sistema de Processos Automatizados'}
@@ -1256,230 +1280,244 @@ const timelineData = [
             variant="ghost"
             size="sm"
             onClick={closeProjectModal}
-            className="text-gray-400 hover:text-white"
+            className="text-gray-400 hover:text-white flex-shrink-0" // flex-shrink-0 evita que o botão diminua
           >
             <X className="w-6 h-6" />
           </Button>
         </div>
         
-        <div className="space-y-6">
+        {/* Conteúdo do Projeto */}
+        <div className="space-y-8"> 
+        {/* Aumentei o espaçamento entre as seções para mobile (space-y-8) */}
+
+          {/* === AssetWise === */}
           {selectedProject === 'assetwise' && (
-  <div className="space-y-6">
-    <div>
-      <h4 className="text-2xl text-green-300 mb-3">AssetWise - Sistema de Gestão de Ativos de TI</h4>
-      <p className="text-gray-300 mb-4 leading-relaxed">
-        Sistema completo desenvolvido para gestão de ativos de TI em empresa real. 
-        Inclui dashboard intuitivo, controle de ativos, histórico de movimentações, 
-        diagnóstico por IA integrada e relatórios automáticos.
-      </p>
-    </div>
+            <div className="space-y-6">
+              <div>
+                <h4 className="text-xl md:text-2xl text-green-300 mb-3">AssetWise - Sistema de Gestão de Ativos de TI</h4>
+                <p className="text-gray-300 mb-4 leading-relaxed text-sm md:text-base">
+                  Sistema completo desenvolvido para gestão de ativos de TI em empresa real. 
+                  Inclui dashboard intuitivo, controle de ativos, histórico de movimentações, 
+                  diagnóstico por IA integrada e relatórios automáticos.
+                </p>
+              </div>
 
-    {/* Dashboard */}
-    <div className="bg-slate-800/50 rounded-xl p-6 border border-blue-500/20">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
-        <h5 className="text-lg text-blue-300">Dashboard Principal</h5>
-      </div>
-      
-      <div className="grid lg:grid-cols-2 gap-6 items-start">
-        <div className="bg-slate-900 rounded-lg p-4 border border-slate-700">
-          <img 
-            src="/projects/assetwise/dashboard.jpg" 
-            alt="Dashboard Principal do AssetWise"
-            className="w-full h-64 object-cover rounded-lg"
-          />
-        </div>
-        
-        <div className="space-y-4">
-          <div>
-            <h6 className="text-green-300 font-medium mb-2">📊 Arquitetura</h6>
-            <ul className="text-gray-300 text-sm space-y-1">
-              <li>• Server-side rendering com Next.js 14</li>
-              <li>• Zustand para gerenciamento de estado</li>
-              <li>• React Query para cache em tempo real</li>
-              <li>• Recharts com dados do Firestore</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+              {/* Dashboard */}
+              <div className="bg-slate-800/50 rounded-xl p-4 md:p-6 border border-blue-500/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
+                  <h5 className="text-lg text-blue-300">Dashboard Principal</h5>
+                </div>
+                
+                {/* GRID RESPONSIVO: Padrão 1 coluna (mobile), 2 colunas (desktop/lg) */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                  
+                  {/* Imagem em cima no Mobile */}
+                  <div className="bg-slate-900 rounded-lg p-4 border border-slate-700">
+                    <img 
+                      src="/projects/assetwise/dashboard.jpg" 
+                      alt="Dashboard Principal do AssetWise"
+                      className="w-full h-48 md:h-64 object-cover rounded-lg" // Altura ajustada para mobile (h-48)
+                    />
+                  </div>
+                  
+                  {/* Descrição em baixo no Mobile */}
+                  <div className="space-y-4">
+                    <div>
+                      <h6 className="text-green-300 font-medium mb-2">📊 Arquitetura</h6>
+                      <ul className="text-gray-300 text-sm space-y-1">
+                        <li>• Server-side rendering com Next.js 14</li>
+                        <li>• Zustand para gerenciamento de estado</li>
+                        <li>• React Query para cache em tempo real</li>
+                        <li>• Recharts com dados do Firestore</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    {/* IA Integration */}
-    <div className="bg-slate-800/50 rounded-xl p-6 border border-green-500/20">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-        <h5 className="text-lg text-green-300">Diagnóstico por IA</h5>
-      </div>
-      
-      <div className="grid lg:grid-cols-2 gap-6 items-start">
-        <div className="bg-slate-900 rounded-lg p-4 border border-slate-700">
-          <img 
-            src="/projects/assetwise/diagnostico-ia.jpg" 
-            alt="Diagnóstico IA AssetWise"
-            className="w-full h-64 object-cover rounded-lg"
-          />
-        </div>
-        
-        <div className="space-y-4">
-          <div>
-            <h6 className="text-green-300 font-medium mb-2">🤖 Google AI Gemini</h6>
-            <ul className="text-gray-300 text-sm space-y-1">
-              <li>• Gemini Pro 1.5 com 128K context</li>
-              <li>• Prompt engineering para diagnósticos</li>
-              <li>• Content filtering nativo</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-)}
+              {/* IA Integration */}
+              <div className="bg-slate-800/50 rounded-xl p-4 md:p-6 border border-green-500/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                  <h5 className="text-lg text-green-300">Diagnóstico por IA</h5>
+                </div>
+                
+                {/* GRID RESPONSIVO: Padrão 1 coluna (mobile), 2 colunas (desktop/lg) */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                  
+                  {/* Imagem em cima no Mobile */}
+                  <div className="bg-slate-900 rounded-lg p-4 border border-slate-700">
+                    <img 
+                      src="/projects/assetwise/diagnostico-ia.jpg" 
+                      alt="Diagnóstico IA AssetWise"
+                      className="w-full h-48 md:h-64 object-cover rounded-lg" // Altura ajustada para mobile (h-48)
+                    />
+                  </div>
+                  
+                  {/* Descrição em baixo no Mobile */}
+                  <div className="space-y-4">
+                    <div>
+                      <h6 className="text-green-300 font-medium mb-2">🤖 Google AI Gemini</h6>
+                      <ul className="text-gray-300 text-sm space-y-1">
+                        <li>• Gemini Pro 1.5 com 128K context</li>
+                        <li>• Prompt engineering para diagnósticos</li>
+                        <li>• Content filtering nativo</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
+          {/* === Flux Finance === */}
           {selectedProject === 'fluxfinance' && (
-  <div className="space-y-6">
-    <div>
-      <h4 className="text-2xl text-green-300 mb-3">Flux Finance - Plataforma Financeira Multi-usuário</h4>
-      <p className="text-gray-300 mb-4 leading-relaxed">
-        Plataforma completa para gestão financeira pessoal com autenticação multi-usuário, 
-        categorização automática de transações, análise de investimentos e insights de mercado.
-      </p>
-    </div>
+            <div className="space-y-6">
+              <div>
+                <h4 className="text-xl md:text-2xl text-green-300 mb-3">Flux Finance - Plataforma Financeira Multi-usuário</h4>
+                <p className="text-gray-300 mb-4 leading-relaxed text-sm md:text-base">
+                  Plataforma completa para gestão financeira pessoal com autenticação multi-usuário, 
+                  categorização automática de transações, análise de investimentos e insights de mercado.
+                </p>
+              </div>
 
-    {/* Dashboard */}
-    <div className="bg-slate-800/50 rounded-xl p-6 border border-green-500/20">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-        <h5 className="text-lg text-green-300">Dashboard Financeiro</h5>
-      </div>
-      
-      <div className="grid lg:grid-cols-2 gap-6 items-start">
-        <div className="bg-slate-900 rounded-lg p-4 border border-slate-700">
-          <img 
-            src="/projects/fluxfinance/painel.jpg"
-            alt="Dashboard Flux Finance"
-            className="w-full h-64 object-cover rounded-lg"
-          />
-        </div>
-        
-        <div className="space-y-4">
-          <div>
-            <h6 className="text-green-300 font-medium mb-2">💾 Multi-usuário</h6>
-            <ul className="text-gray-300 text-sm space-y-1">
-              <li>• Firebase Authentication</li>
-              <li>• Firestore com regras de segurança</li>
-              <li>• Isolamento de dados por usuário</li>
-              <li>• Dashboard personalizado</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+              {/* Dashboard */}
+              <div className="bg-slate-800/50 rounded-xl p-4 md:p-6 border border-green-500/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                  <h5 className="text-lg text-green-300">Dashboard Financeiro</h5>
+                </div>
+                
+                {/* GRID RESPONSIVO: Padrão 1 coluna (mobile), 2 colunas (desktop/lg) */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                  <div className="bg-slate-900 rounded-lg p-4 border border-slate-700">
+                    <img 
+                      src="/projects/fluxfinance/painel.jpg"
+                      alt="Dashboard Flux Finance"
+                      className="w-full h-48 md:h-64 object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="space-y-4">
+                    <div>
+                      <h6 className="text-green-300 font-medium mb-2">💾 Multi-usuário</h6>
+                      <ul className="text-gray-300 text-sm space-y-1">
+                        <li>• Firebase Authentication</li>
+                        <li>• Firestore com regras de segurança</li>
+                        <li>• Isolamento de dados por usuário</li>
+                        <li>• Dashboard personalizado</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    {/* Transações */}
-    <div className="bg-slate-800/50 rounded-xl p-6 border border-blue-500/20">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
-        <h5 className="text-lg text-blue-300">Gestão de Transações</h5>
-      </div>
-      
-      <div className="grid lg:grid-cols-2 gap-6 items-start">
-        <div className="bg-slate-900 rounded-lg p-4 border border-slate-700">
-          <img 
-            src="/projects/fluxfinance/transacoes.jpg"
-            alt="Transações Flux Finance"
-            className="w-full h-64 object-cover rounded-lg"
-          />
-        </div>
-        
-        <div className="space-y-4">
-          <div>
-            <h6 className="text-blue-300 font-medium mb-2">💳 Sistema de Transações</h6>
-            <ul className="text-gray-300 text-sm space-y-1">
-              <li>• Validação com Zod</li>
-              <li>• CRUD otimizado</li>
-              <li>• Filtros em tempo real</li>
-              <li>• Categorização automática</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+              {/* Transações */}
+              <div className="bg-slate-800/50 rounded-xl p-4 md:p-6 border border-blue-500/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
+                  <h5 className="text-lg text-blue-300">Gestão de Transações</h5>
+                </div>
+                
+                {/* GRID RESPONSIVO: Padrão 1 coluna (mobile), 2 colunas (desktop/lg) */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                  <div className="bg-slate-900 rounded-lg p-4 border border-slate-700">
+                    <img 
+                      src="/projects/fluxfinance/transacoes.jpg"
+                      alt="Transações Flux Finance"
+                      className="w-full h-48 md:h-64 object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="space-y-4">
+                    <div>
+                      <h6 className="text-blue-300 font-medium mb-2">💳 Sistema de Transações</h6>
+                      <ul className="text-gray-300 text-sm space-y-1">
+                        <li>• Validação com Zod</li>
+                        <li>• CRUD otimizado</li>
+                        <li>• Filtros em tempo real</li>
+                        <li>• Categorização automática</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    {/* Insights - NOVA SEÇÃO */}
-    <div className="bg-slate-800/50 rounded-xl p-6 border border-purple-500/20">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
-        <h5 className="text-lg text-purple-300">Insights Inteligentes</h5>
-      </div>
-      
-      <div className="grid lg:grid-cols-2 gap-6 items-start">
-        <div className="bg-slate-900 rounded-lg p-4 border border-slate-700">
-          <img 
-            src="/projects/fluxfinance/insights.jpg"
-            alt="Insights Flux Finance"
-            className="w-full h-64 object-cover rounded-lg"
-          />
-        </div>
-        
-        <div className="space-y-4">
-          <div>
-            <h6 className="text-purple-300 font-medium mb-2">📈 Análises Avançadas</h6>
-            <ul className="text-gray-300 text-sm space-y-1">
-              <li>• Gráficos interativos</li>
-              <li>• Tendências de gastos</li>
-              <li>• Metas financeiras</li>
-              <li>• Relatórios personalizados</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+              {/* Insights - NOVA SEÇÃO */}
+              <div className="bg-slate-800/50 rounded-xl p-4 md:p-6 border border-purple-500/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+                  <h5 className="text-lg text-purple-300">Insights Inteligentes</h5>
+                </div>
+                
+                {/* GRID RESPONSIVO: Padrão 1 coluna (mobile), 2 colunas (desktop/lg) */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                  <div className="bg-slate-900 rounded-lg p-4 border border-slate-700">
+                    <img 
+                      src="/projects/fluxfinance/insights.jpg"
+                      alt="Insights Flux Finance"
+                      className="w-full h-48 md:h-64 object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="space-y-4">
+                    <div>
+                      <h6 className="text-purple-300 font-medium mb-2">📈 Análises Avançadas</h6>
+                      <ul className="text-gray-300 text-sm space-y-1">
+                        <li>• Gráficos interativos</li>
+                        <li>• Tendências de gastos</li>
+                        <li>• Metas financeiras</li>
+                        <li>• Relatórios personalizados</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    {/* Análise de Mercado - NOVA SEÇÃO */}
-    <div className="bg-slate-800/50 rounded-xl p-6 border border-orange-500/20">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 bg-orange-400 rounded-full"></div>
-        <h5 className="text-lg text-orange-300">Análise de Mercado</h5>
-      </div>
-      
-      <div className="grid lg:grid-cols-2 gap-6 mb-6">
-        <div className="bg-slate-900 rounded-lg p-4 border border-slate-700">
-          <img 
-            src="/projects/fluxfinance/mercado-1.jpg"
-            alt="Análise de Mercado 1"
-            className="w-full h-48 object-cover rounded-lg"
-          />
-        </div>
-        <div className="bg-slate-900 rounded-lg p-4 border border-slate-700">
-          <img 
-            src="/projects/fluxfinance/mercado-2.jpg"
-            alt="Análise de Mercado 2"
-            className="w-full h-48 object-cover rounded-lg"
-          />
-        </div>
-      </div>
-      
-      <div className="space-y-4">
-        <div>
-          <h6 className="text-orange-300 font-medium mb-2">📊 Investimentos & Mercado</h6>
-          <ul className="text-gray-300 text-sm space-y-1">
-            <li>• Acompanhamento de ações</li>
-            <li>• Análise de portfólio</li>
-            <li>• Comparativos de mercado</li>
-            <li>• Projeções financeiras</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-)}
+              {/* Análise de Mercado - NOVA SEÇÃO */}
+              <div className="bg-slate-800/50 rounded-xl p-4 md:p-6 border border-orange-500/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-orange-400 rounded-full"></div>
+                  <h5 className="text-lg text-orange-300">Análise de Mercado</h5>
+                </div>
+                
+                {/* GRID RESPONSIVO: Padrão 2 colunas (mobile) para imagens menores */}
+                <div className="grid grid-cols-2 gap-4 mb-6"> 
+                  <div className="bg-slate-900 rounded-lg p-2 md:p-4 border border-slate-700">
+                    <img 
+                      src="/projects/fluxfinance/mercado-1.jpg"
+                      alt="Análise de Mercado 1"
+                      className="w-full h-24 md:h-48 object-cover rounded-lg" // Altura menor para caber duas em mobile
+                    />
+                  </div>
+                  <div className="bg-slate-900 rounded-lg p-2 md:p-4 border border-slate-700">
+                    <img 
+                      src="/projects/fluxfinance/mercado-2.jpg"
+                      alt="Análise de Mercado 2"
+                      className="w-full h-24 md:h-48 object-cover rounded-lg" // Altura menor para caber duas em mobile
+                    />
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div>
+                    <h6 className="text-orange-300 font-medium mb-2">📊 Investimentos & Mercado</h6>
+                    <ul className="text-gray-300 text-sm space-y-1">
+                      <li>• Acompanhamento de ações</li>
+                      <li>• Análise de portfólio</li>
+                      <li>• Comparativos de mercado</li>
+                      <li>• Projeções financeiras</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
-          {/* RPA - COMPLETO AGORA */}
+          {/* === RPA - COMPLETO AGORA === */}
           {selectedProject === 'rpa' && (
             <div className="space-y-6">
               <div>
-                <h4 className="text-2xl text-blue-300 mb-3">Automação RPA - Sistema de Processos Automatizados</h4>
-                <p className="text-gray-300 mb-4 leading-relaxed">
+                <h4 className="text-xl md:text-2xl text-blue-300 mb-3">Automação RPA - Sistema de Processos Automatizados</h4>
+                <p className="text-gray-300 mb-4 leading-relaxed text-sm md:text-base">
                   Sistema completo de automação robótica de processos que monitora caixa de e-mails, 
                   extrai dados de documentos e integra com ERP corporativo via UiPath, eliminando 
                   processos manuais repetitivos.
@@ -1487,7 +1525,7 @@ const timelineData = [
               </div>
 
               {/* Arquitetura do Sistema */}
-              <div className="bg-slate-800/50 rounded-xl p-6 border border-blue-500/20">
+              <div className="bg-slate-800/50 rounded-xl p-4 md:p-6 border border-blue-500/20">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
                   <h5 className="text-lg text-blue-300">Arquitetura do Sistema RPA</h5>
@@ -1496,7 +1534,8 @@ const timelineData = [
                 <div className="space-y-6">
                   <div>
                     <h6 className="text-green-300 font-medium mb-3">🔧 Stack Técnica Completa</h6>
-                    <div className="grid md:grid-cols-2 gap-4">
+                    {/* GRID RESPONSIVO: Padrão 1 coluna (mobile), 2 colunas (desktop/md) */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <p className="text-blue-300 font-medium mb-2">Python Backend</p>
                         <ul className="text-gray-300 text-sm space-y-1">
@@ -1522,6 +1561,7 @@ const timelineData = [
                   <div>
                     <h6 className="text-cyan-300 font-medium mb-3">⚙️ Fluxo de Processamento</h6>
                     <div className="space-y-3">
+                      {/* O layout de passos já é bom para mobile, mantido */}
                       <div className="flex items-start gap-3">
                         <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                           <span className="text-white text-sm font-bold">1</span>
@@ -1564,7 +1604,8 @@ const timelineData = [
               </div>
 
               {/* Benefícios e Métricas */}
-              <div className="grid md:grid-cols-2 gap-6">
+              {/* GRID RESPONSIVO: Padrão 1 coluna (mobile), 2 colunas (desktop/md) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <h6 className="text-lg text-green-300 font-medium">📊 Métricas de Performance</h6>
                   <div className="space-y-3">
@@ -1589,6 +1630,7 @@ const timelineData = [
                 
                 <div className="space-y-4">
                   <h6 className="text-lg text-blue-300 font-medium">🛡️ Sistema de Tratamento de Erros</h6>
+                  {/* O layout de lista já é bom para mobile, mantido */}
                   <div className="space-y-2">
                     <div className="flex items-start gap-2">
                       <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0"></div>
@@ -1611,22 +1653,23 @@ const timelineData = [
               </div>
 
               {/* Stack Técnica */}
-              <div className="bg-slate-800/50 rounded-xl p-6 border border-green-500/20">
+              <div className="bg-slate-800/50 rounded-xl p-4 md:p-6 border border-green-500/20">
                 <h6 className="text-lg text-green-300 font-medium mb-4">🛠️ Stack Técnica Completa</h6>
+                {/* flex-wrap garante que as tags quebrem em mobile */}
                 <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-2 text-sm bg-blue-500/20 text-blue-300 rounded-lg border border-blue-500/30 flex items-center gap-2">
+                  <span className="px-3 py-1 md:px-4 md:py-2 text-sm bg-blue-500/20 text-blue-300 rounded-lg border border-blue-500/30 flex items-center gap-2">
                     <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
                     Python 3.10
                   </span>
-                  <span className="px-4 py-2 text-sm bg-orange-500/20 text-orange-300 rounded-lg border border-orange-500/30 flex items-center gap-2">
+                  <span className="px-3 py-1 md:px-4 md:py-2 text-sm bg-orange-500/20 text-orange-300 rounded-lg border border-orange-500/30 flex items-center gap-2">
                     <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
                     UiPath Studio
                   </span>
-                  <span className="px-4 py-2 text-sm bg-green-500/20 text-green-300 rounded-lg border border-green-500/30 flex items-center gap-2">
+                  <span className="px-3 py-1 md:px-4 md:py-2 text-sm bg-green-500/20 text-green-300 rounded-lg border border-green-500/30 flex items-center gap-2">
                     <span className="w-2 h-2 bg-green-400 rounded-full"></span>
                     Outlook API
                   </span>
-                  <span className="px-4 py-2 text-sm bg-purple-500/20 text-purple-300 rounded-lg border border-purple-500/30 flex items-center gap-2">
+                  <span className="px-3 py-1 md:px-4 md:py-2 text-sm bg-purple-500/20 text-purple-300 rounded-lg border border-purple-500/30 flex items-center gap-2">
                     <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
                     Windows COM
                   </span>
@@ -1635,19 +1678,19 @@ const timelineData = [
             </div>
           )}
 
-          {/* ANÁLISE FINANCEIRA - COMPLETO AGORA */}
+          {/* === ANÁLISE FINANCEIRA - COMPLETO AGORA === */}
           {selectedProject === 'analise' && (
             <div className="space-y-6">
               <div>
-                <h4 className="text-2xl text-orange-300 mb-3">Sistema de Análise Financeira Comparativa</h4>
-                <p className="text-gray-300 mb-4 leading-relaxed">
+                <h4 className="text-xl md:text-2xl text-orange-300 mb-3">Sistema de Análise Financeira Comparativa</h4>
+                <p className="text-gray-300 mb-4 leading-relaxed text-sm md:text-base">
                   Ferramenta avançada em Python para análise comparativa de dados financeiros entre períodos, 
                   com geração automática de relatórios em Excel e PDF, gráficos interativos e estatísticas detalhadas.
                 </p>
               </div>
 
               {/* Arquitetura do Sistema */}
-              <div className="bg-slate-800/50 rounded-xl p-6 border border-orange-500/20">
+              <div className="bg-slate-800/50 rounded-xl p-4 md:p-6 border border-orange-500/20">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-3 h-3 bg-orange-400 rounded-full"></div>
                   <h5 className="text-lg text-orange-300">Arquitetura Modular Avançada</h5>
@@ -1656,7 +1699,8 @@ const timelineData = [
                 <div className="space-y-6">
                   <div>
                     <h6 className="text-green-300 font-medium mb-3">🏗️ Estrutura de Módulos</h6>
-                    <div className="grid md:grid-cols-2 gap-6">
+                    {/* GRID RESPONSIVO: Padrão 1 coluna (mobile), 2 colunas (desktop/md) */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <p className="text-blue-300 font-medium mb-2">Core Modules</p>
                         <ul className="text-gray-300 text-sm space-y-1">
@@ -1680,6 +1724,7 @@ const timelineData = [
 
                   <div>
                     <h6 className="text-cyan-300 font-medium mb-3">📈 Pipeline de Processamento</h6>
+                    {/* O layout de passos já é bom para mobile, mantido */}
                     <div className="space-y-3">
                       <div className="flex items-start gap-3">
                         <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
@@ -1723,9 +1768,11 @@ const timelineData = [
               </div>
 
               {/* Funcionalidades Avançadas */}
-              <div className="grid md:grid-cols-2 gap-6">
+              {/* GRID RESPONSIVO: Padrão 1 coluna (mobile), 2 colunas (desktop/md) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <h6 className="text-lg text-green-300 font-medium">📊 Análises Estatísticas</h6>
+                  {/* O layout de blocos já é bom para mobile, mantido */}
                   <div className="space-y-3">
                     <div className="p-3 bg-slate-800/50 rounded-lg">
                       <p className="text-green-300 font-medium mb-1">Análise de Variações</p>
@@ -1744,24 +1791,25 @@ const timelineData = [
                 
                 <div className="space-y-4">
                   <h6 className="text-lg text-blue-300 font-medium">🛠️ Stack Técnica</h6>
+                  {/* flex-wrap garante que as tags quebrem em mobile */}
                   <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-2 text-sm bg-orange-500/20 text-orange-300 rounded-lg border border-orange-500/30 flex items-center gap-2">
+                    <span className="px-3 py-1 md:px-3 md:py-2 text-sm bg-orange-500/20 text-orange-300 rounded-lg border border-orange-500/30 flex items-center gap-2">
                       <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
                       Python 3.10
                     </span>
-                    <span className="px-3 py-2 text-sm bg-green-500/20 text-green-300 rounded-lg border border-green-500/30 flex items-center gap-2">
+                    <span className="px-3 py-1 md:px-3 md:py-2 text-sm bg-green-500/20 text-green-300 rounded-lg border border-green-500/30 flex items-center gap-2">
                       <span className="w-2 h-2 bg-green-400 rounded-full"></span>
                       Pandas
                     </span>
-                    <span className="px-3 py-2 text-sm bg-blue-500/20 text-blue-300 rounded-lg border border-blue-500/30 flex items-center gap-2">
+                    <span className="px-3 py-1 md:px-3 md:py-2 text-sm bg-blue-500/20 text-blue-300 rounded-lg border border-blue-500/30 flex items-center gap-2">
                       <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
                       Matplotlib
                     </span>
-                    <span className="px-3 py-2 text-sm bg-purple-500/20 text-purple-300 rounded-lg border border-purple-500/30 flex items-center gap-2">
+                    <span className="px-3 py-1 md:px-3 md:py-2 text-sm bg-purple-500/20 text-purple-300 rounded-lg border border-purple-500/30 flex items-center gap-2">
                       <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
                       Seaborn
                     </span>
-                    <span className="px-3 py-2 text-sm bg-cyan-500/20 text-cyan-300 rounded-lg border border-cyan-500/30 flex items-center gap-2">
+                    <span className="px-3 py-1 md:px-3 md:py-2 text-sm bg-cyan-500/20 text-cyan-300 rounded-lg border border-cyan-500/30 flex items-center gap-2">
                       <span className="w-2 h-2 bg-cyan-400 rounded-full"></span>
                       OpenPyXL
                     </span>
@@ -1770,24 +1818,25 @@ const timelineData = [
               </div>
 
               {/* Métricas de Performance */}
-              <div className="bg-slate-800/50 rounded-xl p-6 border border-cyan-500/20">
+              <div className="bg-slate-800/50 rounded-xl p-4 md:p-6 border border-cyan-500/20">
                 <h6 className="text-lg text-cyan-300 font-medium mb-4">⚡ Performance do Sistema</h6>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="text-center p-4 bg-slate-800/30 rounded-lg">
-                    <p className="text-cyan-300 text-2xl font-bold">2.3s</p>
-                    <p className="text-gray-400 text-sm">Processamento</p>
+                {/* GRID RESPONSIVO: Padrão 2 colunas (mobile), 4 colunas (desktop/md) */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4"> 
+                  <div className="text-center p-3 bg-slate-800/30 rounded-lg">
+                    <p className="text-cyan-300 text-xl md:text-2xl font-bold">2.3s</p>
+                    <p className="text-gray-400 text-xs md:text-sm">Processamento</p>
                   </div>
-                  <div className="text-center p-4 bg-slate-800/30 rounded-lg">
-                    <p className="text-green-300 text-2xl font-bold">15+</p>
-                    <p className="text-gray-400 text-sm">Tipos de Gráficos</p>
+                  <div className="text-center p-3 bg-slate-800/30 rounded-lg">
+                    <p className="text-green-300 text-xl md:text-2xl font-bold">15+</p>
+                    <p className="text-gray-400 text-xs md:text-sm">Tipos de Gráficos</p>
                   </div>
-                  <div className="text-center p-4 bg-slate-800/30 rounded-lg">
-                    <p className="text-blue-300 text-2xl font-bold">99.8%</p>
-                    <p className="text-gray-400 text-sm">Precisão</p>
+                  <div className="text-center p-3 bg-slate-800/30 rounded-lg">
+                    <p className="text-blue-300 text-xl md:text-2xl font-bold">99.8%</p>
+                    <p className="text-gray-400 text-xs md:text-sm">Precisão</p>
                   </div>
-                  <div className="text-center p-4 bg-slate-800/30 rounded-lg">
-                    <p className="text-purple-300 text-2xl font-bold">3</p>
-                    <p className="text-gray-400 text-sm">Formatos Export</p>
+                  <div className="text-center p-3 bg-slate-800/30 rounded-lg">
+                    <p className="text-purple-300 text-xl md:text-2xl font-bold">3</p>
+                    <p className="text-gray-400 text-xs md:text-sm">Formatos Export</p>
                   </div>
                 </div>
               </div>
@@ -1798,6 +1847,7 @@ const timelineData = [
     </motion.div>
   </motion.div>
 )}
+
       {/* Services Section */}
 <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900/50 to-transparent">
   <div className="max-w-6xl mx-auto">
