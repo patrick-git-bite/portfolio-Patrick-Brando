@@ -4,7 +4,7 @@ import {
   Mail, Phone, Github, Linkedin, Menu, X, Calendar, MapPin, 
   Bot, BarChart3, Code, Monitor, Cloud, Gamepad2, Zap, 
   TrendingUp, Globe, Settings, Sparkles, Heart, Users, 
-  Coffee, Database, Server, Target, Clock, FileText, GitBranch, Eye, Lock, GraduationCap  
+  Coffee, Database, Server, Target, Clock, FileText, GitBranch, Eye, Lock, GraduationCap, Award   
 } from 'lucide-react';
 import { Button } from './components/ui/button';
 import { Card } from './components/ui/card';
@@ -29,7 +29,7 @@ export default function App() {
 const closeProjectModal = () => {
   setSelectedProject(null);
 };
-  // --- INÍCIO DA LÓGICA DO FORMULÁRIO ---
+  // INÍCIO DA LÓGICA DO FORMULÁRIO
   // Estados para guardar os dados do formulário e o status de envio.
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -169,7 +169,8 @@ const timelineData = [
     description: "Análise e Desenvolvimento de Sistemas - Uniftec",
     icon: Calendar,
     color: "from-blue-500 to-cyan-500",
-    achievements: ["Primeiros contatos com programação", "Fundamentos de algoritmos"]
+    achievements: ["Primeiros contatos com programação", "Fundamentos de algoritmos"],
+    status: "Em andamento"  // Nova propriedade
   },
   { 
     year: "2025", 
@@ -177,31 +178,35 @@ const timelineData = [
     description: "Analista/Suporte de TI - Detella Restaurantes",
     icon: Target,
     color: "from-green-500 to-teal-500",
-    achievements: ["Automação de processos", "Desenvolvimento full-stack", "Gestão de infraestrutura"]
+    achievements: ["Automação de processos", "Desenvolvimento full-stack", "Gestão de infraestrutura"],
+    status: "Em andamento"
   },
   { 
     year: "2025", 
-    title: "Certificação Google Cloud", 
-    description: "Google Cloud Computing Foundations",
+    title: "Google Cloud Computing Foundations", 
+    description: "Certificação Concluída • Google Cloud",
     icon: Cloud,
     color: "from-purple-500 to-pink-500",
-    achievements: ["Fundamentos de cloud computing", "Infraestrutura Google Cloud"]
+    achievements: ["Fundamentos de cloud computing", "Infraestrutura Google Cloud", "14+ Habilidades técnicas"],
+    status: "Concluído"
   },
   { 
     year: "2025", 
-    title: "Especialização em Cloud", 
-    description: "15+ Certificações Google Cloud",
-    icon: TrendingUp,
-    color: "from-orange-500 to-red-500",
-    achievements: ["Infraestrutura & Rede", "Dados & Machine Learning"]
-  },
-  { 
-    year: "2026", 
-    title: "Meta: Data Analytics", 
-    description: "Google Cloud Data Analytics Certificate",
+    title: "Google Cloud Data Analytics Certificate", 
+    description: "Certificação Concluída • Google Cloud",
     icon: BarChart3,
     color: "from-yellow-500 to-green-500",
-    achievements: ["BigQuery", "Data Visualization", "Análise de Big Data"]
+    achievements: ["BigQuery & Data Processing", "Data Visualization (Looker Studio)", "Data Modeling & BI", "Reconhecimento ACE (10 créditos)"],
+    status: "Concluído"
+  },
+  { 
+    year: "2025", 
+    title: "Especialização Google Cloud", 
+    description: "15+ Certificações Google Cloud Concluídas",
+    icon: TrendingUp,
+    color: "from-orange-500 to-red-500",
+    achievements: ["Infraestrutura & Rede", "Dados & Machine Learning", "Certificações técnicas avançadas"],
+    status: "Concluído"
   },
   { 
     year: "2027", 
@@ -209,7 +214,8 @@ const timelineData = [
     description: "Formação em Análise e Desenvolvimento de Sistemas",
     icon: GraduationCap,
     color: "from-indigo-500 to-blue-500",
-    achievements: ["Projeto de conclusão", "Preparação para mercado"]
+    achievements: ["Projeto de conclusão", "Preparação para mercado", "Portfólio consolidado"],
+    status: "Previsto"
   }
 ];
 
@@ -338,8 +344,9 @@ const timelineData = [
           transition={{ delay: 0.6 }}
           className="text-base sm:text-lg text-gray-400 mb-6 md:mb-8 leading-relaxed"
         >
-          Em constante aprendizado, apaixonado por tecnologia e sempre disposto a ajudar 
-          pequenos negócios e empreendedores a crescerem com soluções digitais simples e eficazes.
+            Em constante evolução técnica, especializado em soluções escaláveis para grandes empresas. 
+  Combino expertise em cloud computing, automação e análise de dados para otimizar processos 
+  e impulsionar resultados em ambientes corporativos de alto desempenho.
         </motion.p>
       </div>
 
@@ -411,22 +418,24 @@ const timelineData = [
               viewport={{ once: true }}
             >
               <Card className="p-8 bg-gradient-to-br from-slate-800/50 to-purple-900/20 border-purple-500/20 backdrop-blur-sm">
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                  Sou apaixonado por tecnologia, games e natureza, sempre buscando aprender e evoluir. 
-                  Minha trajetória é marcada pela curiosidade e pelo desejo constante de resolver problemas 
-                  através da inovação, mesmo que ainda esteja no início da minha jornada profissional.
-                </p>
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                  Acredito que não preciso ser um especialista para fazer a diferença. Com dedicação, 
-                  estudo constante e muita disposição, busco ajudar pequenos negócios, empreendedores 
-                  e pessoas que precisam de soluções tecnológicas simples e acessíveis.
-                </p>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Meu foco está em automação de processos básicos, desenvolvimento web simples e 
-                  suporte técnico. Sei que tenho muito a aprender, mas estou disposto a dar o meu 
-                  melhor em cada projeto, tratando cada cliente como uma oportunidade de crescimento mútuo.
-                </p>
-              </Card>
+  <p className="text-lg text-gray-300 leading-relaxed mb-6">
+    Tecnólogo com mentalidade voltada para resultados e inovação escalável. 
+    Minha jornada profissional combina expertise técnica certificada em Google Cloud 
+    com experiência prática em projetos que exigem pensamento estratégico e execução precisa.
+  </p>
+  
+  <p className="text-lg text-gray-300 leading-relaxed mb-6">
+    Especialista em traduzir necessidades de negócio em soluções tecnológicas eficientes. 
+    Com foco em cloud architecture, automação inteligente e análise de dados, desenvolvo 
+    sistemas que não apenas resolvem problemas imediatos, mas criam vantagens competitivas duradouras.
+  </p>
+  
+  <p className="text-lg text-gray-300 leading-relaxed">
+    Atuo na interseção entre tecnologia e negócios, implementando soluções que otimizam 
+    operações, reduzem custos e impulsionam crescimento. Busco constantemente desafios 
+    em ambientes corporativos onde a excelência técnica e a inovação são valorizadas.
+  </p>
+</Card>
             </motion.div>
 
             <motion.div
@@ -497,8 +506,9 @@ const timelineData = [
               >
                 <p className="text-sm text-yellow-300 font-medium mb-2">💡 Minha Filosofia:</p>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  "Prefiro ser honesto sobre meu nível atual e entregar com qualidade do que prometer algo além das minhas capacidades. 
-                  Cada projeto é uma chance de aprender e crescer juntos!"
+                  "Valorizo a transparência sobre capacidades técnicas e entrego com excelência operacional. 
+Cada desafio é abordado com precisão estratégica, garantindo soluções robustas que 
+superam expectativas e estabelecem bases para crescimento sustentável.""
                 </p>
               </motion.div>
             </motion.div>
@@ -559,79 +569,381 @@ const timelineData = [
               <Card className="p-8 bg-gradient-to-l from-cyan-900/20 to-purple-900/20 border-cyan-500/30 backdrop-blur-sm">
                 <h3 className="text-2xl text-cyan-300 mb-6">Licenças e Certificados</h3>
                 <div className="space-y-4">
-                  {/* Google Cloud Data Analytics */}
-                  <div className="flex items-center space-x-4 p-4 bg-slate-800/30 rounded-lg border border-cyan-500/20">
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full flex-shrink-0 animate-pulse"></div>
-                    <div className="flex-1">
-                      <span className="text-gray-300 font-medium">Google Cloud Data Analytics Certificate</span>
-                      <p className="text-sm text-gray-400 mt-1">
-                        Focado em técnicas de Análise de Dados, visualização (Looker Studio) e uso de BigQuery no Google Cloud Platform
-                      </p>
-                      <div className="flex flex-wrap gap-2 mt-2">
-                        <span className="text-xs text-cyan-400 bg-cyan-500/20 px-2 py-1 rounded-full">Análise de Big Data</span>
-                        <span className="text-xs text-cyan-400 bg-cyan-500/20 px-2 py-1 rounded-full">BigQuery</span>
-                        <span className="text-xs text-cyan-400 bg-cyan-500/20 px-2 py-1 rounded-full">Data Analytics</span>
-                      </div>
-                    </div>
-                    <span className="text-xs text-yellow-400 bg-yellow-500/20 px-2 py-1 rounded-full">Out 2025 - Abr 2026</span>
-                  </div>
-                  
-                  {/* Google Cloud Computing Foundations */}
-                  <div className="flex items-center space-x-4 p-4 bg-slate-800/30 rounded-lg border border-green-500/20">
-                    <div className="w-3 h-3 bg-green-400 rounded-full flex-shrink-0"></div>
-                    <div className="flex-1">
-                      <span className="text-gray-300 font-medium">Google Cloud Computing Foundations Certificate</span>
-                      <p className="text-sm text-gray-400 mt-1">Fundamentos de computação em nuvem e infraestrutura Google Cloud</p>
-                      <div className="flex flex-wrap gap-2 mt-2">
-                        <span className="text-xs text-green-400 bg-green-500/20 px-2 py-1 rounded-full">BigQuery</span>
-                        <span className="text-xs text-green-400 bg-green-500/20 px-2 py-1 rounded-full">Google Cloud Platform</span>
-                      </div>
-                    </div>
-                    <span className="text-xs text-green-400 bg-green-500/20 px-2 py-1 rounded-full">Nov 2025</span>
-                  </div>
-                  
-                  {/* Especialização Google Cloud */}
-<div className="p-6 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-lg border border-purple-500/30">
-  <div className="flex items-center justify-between mb-4">
-    <div className="flex items-center space-x-3">
-      <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
-      <span className="text-gray-300 font-medium text-lg">Especialização Google Cloud</span>
+
+                  {/* Google Cloud Data Analytics Certificate*/}
+<div className="p-6 bg-gradient-to-r from-yellow-600/20 to-green-600/20 rounded-xl border border-yellow-500/30">
+  <div className="flex items-start justify-between mb-4">
+    <div className="flex items-center space-x-4">
+      <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-green-500 rounded-lg flex items-center justify-center">
+        <BarChart3 className="w-6 h-6 text-white" />
+      </div>
+      <div>
+        <h4 className="text-xl font-bold text-yellow-300">Google Cloud Data Analytics Certificate</h4>
+        <p className="text-sm text-green-400">Google Cloud • Especialização Concluída</p>
+      </div>
     </div>
-    <span className="text-xs text-purple-400 bg-purple-500/20 px-3 py-1 rounded-full border border-purple-500/30">15+ Certificações</span>
+    <span className="text-sm text-green-400 bg-green-500/20 px-3 py-1 rounded-full border border-green-500/30">
+      ✅ Concluído • Nov 2025
+    </span>
   </div>
   
-  <p className="text-sm text-gray-400 mb-4">
-    Especialista em infraestrutura cloud com múltiplas certificações técnicas
+  <p className="text-gray-300 mb-4 leading-relaxed">
+    Certificação avançada que prepara para funções de <strong>Cloud Data Analyst</strong>, 
+    <strong> Cloud Data Technician</strong> e <strong>Cloud Operations Analyst</strong>. 
+    Habilidades em SQL, limpeza de dados, análise, visualização e business intelligence na nuvem.
   </p>
   
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div className="space-y-4">
     <div>
-      <h4 className="text-sm text-blue-300 font-medium mb-2">🏗️ Infraestrutura & Rede</h4>
-      <div className="flex flex-wrap gap-1">
-        <span className="text-xs text-blue-400 bg-blue-500/20 px-2 py-1 rounded-full">Load Balancing</span>
-        <span className="text-xs text-blue-400 bg-blue-500/20 px-2 py-1 rounded-full">Network Security</span>
-        <span className="text-xs text-blue-400 bg-blue-500/20 px-2 py-1 rounded-full">Compute Engine</span>
+      <h5 className="text-yellow-300 font-medium mb-2">📊 Stack Técnica Completa:</h5>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+        <div className="space-y-1">
+          <p className="text-xs text-green-300 font-medium">📈 Análise & Processamento</p>
+          <div className="flex flex-wrap gap-1">
+            <span className="px-2 py-1 text-xs bg-yellow-500/20 text-yellow-300 rounded-full">BigQuery</span>
+            <span className="px-2 py-1 text-xs bg-yellow-500/20 text-yellow-300 rounded-full">Data Analytics</span>
+            <span className="px-2 py-1 text-xs bg-yellow-500/20 text-yellow-300 rounded-full">Data Transformation</span>
+          </div>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs text-blue-300 font-medium">🎨 Visualização & BI</p>
+          <div className="flex flex-wrap gap-1">
+            <span className="px-2 py-1 text-xs bg-blue-500/20 text-blue-300 rounded-full">Looker Studio</span>
+            <span className="px-2 py-1 text-xs bg-blue-500/20 text-blue-300 rounded-full">Data Visualization</span>
+            <span className="px-2 py-1 text-xs bg-blue-500/20 text-blue-300 rounded-full">Business Intelligence</span>
+          </div>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs text-purple-300 font-medium">🏗️ Modelagem & Gestão</p>
+          <div className="flex flex-wrap gap-1">
+            <span className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded-full">Data Modeling</span>
+            <span className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded-full">Project Management</span>
+            <span className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded-full">SQL</span>
+          </div>
+        </div>
       </div>
     </div>
     
     <div>
-      <h4 className="text-sm text-green-300 font-medium mb-2">📊 Dados & Machine Learning</h4>
-      <div className="flex flex-wrap gap-1">
-        <span className="text-xs text-green-400 bg-green-500/20 px-2 py-1 rounded-full">BigQuery</span>
-        <span className="text-xs text-green-400 bg-green-500/20 px-2 py-1 rounded-full">Data Pipelines</span>
-        <span className="text-xs text-green-400 bg-green-500/20 px-2 py-1 rounded-full">ML APIs</span>
+      <h5 className="text-green-300 font-medium mb-2">🎯 Carreiras Preparadas:</h5>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="p-3 bg-slate-800/30 rounded-lg border border-yellow-500/20">
+          <div className="flex items-center space-x-2 mb-1">
+            <BarChart3 className="w-4 h-4 text-yellow-400" />
+            <span className="text-sm font-medium text-yellow-300">Cloud Data Analyst</span>
+          </div>
+          <p className="text-xs text-gray-300">
+            Análise de dados na nuvem para tomada de decisões estratégicas
+          </p>
+        </div>
+        <div className="p-3 bg-slate-800/30 rounded-lg border border-green-500/20">
+          <div className="flex items-center space-x-2 mb-1">
+            <Settings className="w-4 h-4 text-green-400" />
+            <span className="text-sm font-medium text-green-300">Cloud Data Technician</span>
+          </div>
+          <p className="text-xs text-gray-300">
+            Processamento e preparação de dados em ambientes cloud
+          </p>
+        </div>
+        <div className="p-3 bg-slate-800/30 rounded-lg border border-blue-500/20">
+          <div className="flex items-center space-x-2 mb-1">
+            <TrendingUp className="w-4 h-4 text-blue-400" />
+            <span className="text-sm font-medium text-blue-300">Cloud Operations Analyst</span>
+          </div>
+          <p className="text-xs text-gray-300">
+            Otimização de operações e processos de dados na nuvem
+          </p>
+        </div>
+        <div className="p-3 bg-slate-800/30 rounded-lg border border-purple-500/20">
+          <div className="flex items-center space-x-2 mb-1">
+            <Users className="w-4 h-4 text-purple-400" />
+            <span className="text-sm font-medium text-purple-300">Business Intelligence</span>
+          </div>
+          <p className="text-xs text-gray-300">
+            Desenvolvimento de dashboards e relatórios estratégicos
+          </p>
+        </div>
       </div>
+    </div>
+    
+    <div className="pt-4 border-t border-yellow-500/20">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center space-x-2">
+          <GraduationCap className="w-4 h-4 text-green-400" />
+          <span className="text-sm text-green-400">Reconhecimento Acadêmico:</span>
+        </div>
+        <div className="flex space-x-2">
+          <span className="px-2 py-1 text-xs bg-green-500/20 text-green-300 rounded border border-green-500/30">
+            ACE - 10 créditos
+          </span>
+          <span className="px-2 py-1 text-xs bg-blue-500/20 text-blue-300 rounded border border-blue-500/30">
+            5 Cursos
+          </span>
+          <span className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded border border-purple-500/30">
+            Google Cloud
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <div className="flex justify-center pt-2">
+      <a 
+        href="#" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="px-4 py-2 bg-gradient-to-r from-yellow-600 to-green-600 text-white text-sm rounded-lg hover:opacity-90 transition"
+      >
+        Ver Credencial
+      </a>
     </div>
   </div>
 </div>
-<div className="text-center mt-8">
-  <Button
-    variant="outline"
-    className="border-purple-500/50 text-purple-300 hover:bg-purple-500/10"
-    onClick={() => window.open('https://www.credly.com/users/patrick-brando', '_blank')}
-  >
-    Ver todas as 15+ certificações no Credly
-  </Button>
+                  
+                 {/* Google Cloud Computing Foundations Certificate*/}
+<div className="p-6 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-xl border border-blue-500/30">
+  <div className="flex items-start justify-between mb-4">
+    <div className="flex items-center space-x-4">
+      <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+        <Cloud className="w-6 h-6 text-white" />
+      </div>
+      <div>
+        <h4 className="text-xl font-bold text-blue-300">Google Cloud Computing Foundations Certificate</h4>
+        <p className="text-sm text-cyan-400">Google Cloud • Fundamentos Técnicos Concluídos</p>
+      </div>
+    </div>
+    <span className="text-sm text-cyan-400 bg-cyan-500/20 px-3 py-1 rounded-full border border-cyan-500/30">
+      ✅ Concluído • Nov 2025
+    </span>
+  </div>
+  
+  <p className="text-gray-300 mb-4 leading-relaxed">
+    Programa que desenvolve <strong>proficiência técnica em cloud computing</strong>, 
+    formando base ideal para carreiras em infraestrutura de TI, engenharia cloud e 
+    desenvolvimento de aplicações cloud-native.
+  </p>
+  
+  <div className="space-y-4">
+    <div>
+      <h5 className="text-blue-300 font-medium mb-2">⚙️ Stack Técnica Completa:</h5>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div className="space-y-1">
+          <p className="text-xs text-cyan-300 font-medium">🏗️ Infraestrutura</p>
+          <div className="flex flex-wrap gap-1">
+            <span className="px-2 py-1 text-xs bg-blue-500/20 text-blue-300 rounded-full">Compute Engine</span>
+            <span className="px-2 py-1 text-xs bg-blue-500/20 text-blue-300 rounded-full">Cloud Storage</span>
+          </div>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs text-green-300 font-medium">🔐 Segurança</p>
+          <div className="flex flex-wrap gap-1">
+            <span className="px-2 py-1 text-xs bg-green-500/20 text-green-300 rounded-full">IAM</span>
+            <span className="px-2 py-1 text-xs bg-green-500/20 text-green-300 rounded-full">Network Security</span>
+          </div>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs text-purple-300 font-medium">📊 Dados & ML</p>
+          <div className="flex flex-wrap gap-1">
+            <span className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded-full">BigQuery</span>
+            <span className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded-full">Dataproc</span>
+          </div>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs text-orange-300 font-medium">🔗 APIs & Dev</p>
+          <div className="flex flex-wrap gap-1">
+            <span className="px-2 py-1 text-xs bg-orange-500/20 text-orange-300 rounded-full">APIs</span>
+            <span className="px-2 py-1 text-xs bg-orange-500/20 text-orange-300 rounded-full">Cloud Functions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <h5 className="text-cyan-300 font-medium mb-2">🎯 Preparação para Carreiras:</h5>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="p-3 bg-slate-800/30 rounded-lg border border-blue-500/20">
+          <div className="flex items-center space-x-2 mb-1">
+            <Server className="w-4 h-4 text-blue-400" />
+            <span className="text-sm font-medium text-blue-300">Cloud Engineer</span>
+          </div>
+          <p className="text-xs text-gray-300">
+            Migração de infraestrutura física para ambientes virtuais
+          </p>
+        </div>
+        <div className="p-3 bg-slate-800/30 rounded-lg border border-green-500/20">
+          <div className="flex items-center space-x-2 mb-1">
+            <Code className="w-4 h-4 text-green-400" />
+            <span className="text-sm font-medium text-green-300">Software Developer</span>
+          </div>
+          <p className="text-xs text-gray-300">
+            Desenvolvimento de aplicações e otimização de operações
+          </p>
+        </div>
+        <div className="p-3 bg-slate-800/30 rounded-lg border border-purple-500/20">
+          <div className="flex items-center space-x-2 mb-1">
+            <Settings className="w-4 h-4 text-purple-400" />
+            <span className="text-sm font-medium text-purple-300">IT Infrastructure Analyst</span>
+          </div>
+          <p className="text-xs text-gray-300">
+            Gestão de serviços de infraestrutura de TI na nuvem
+          </p>
+        </div>
+        <div className="p-3 bg-slate-800/30 rounded-lg border border-orange-500/20">
+          <div className="flex items-center space-x-2 mb-1">
+            <Users className="w-4 h-4 text-orange-400" />
+            <span className="text-sm font-medium text-orange-300">ICT Consultant</span>
+          </div>
+          <p className="text-xs text-gray-300">
+            Consultoria em otimização e implementação de soluções cloud
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div className="pt-4 border-t border-cyan-500/20">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center space-x-2">
+          <Globe className="w-4 h-4 text-cyan-400" />
+          <span className="text-sm text-cyan-400">Pré-requisito para certificações:</span>
+        </div>
+        <div className="flex space-x-2">
+          <span className="px-2 py-1 text-xs bg-gray-500/30 text-gray-300 rounded border border-gray-600">Associate Cloud Engineer</span>
+          <span className="px-2 py-1 text-xs bg-gray-500/30 text-gray-300 rounded border border-gray-600">Cloud Cybersecurity</span>
+        </div>
+      </div>
+    </div>
+    
+    <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+      <a 
+        href="https://www.credly.com/earner/earned/badge/8b817251-061c-4faa-870b-5d64a28a2884" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-sm rounded-lg hover:opacity-90 transition text-center"
+      >
+        Ver Credencial
+      </a>
+    </div>
+  </div>
+</div>
+                  
+                 {/* Especialização Google Cloud - COMPLETA E PADRONIZADA */}
+<div className="p-6 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-xl border border-purple-500/30">
+  <div className="flex items-start justify-between mb-4">
+    <div className="flex items-center space-x-4">
+      <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+        <TrendingUp className="w-6 h-6 text-white" />
+      </div>
+      <div>
+        <h4 className="text-xl font-bold text-purple-300">Especialização Google Cloud</h4>
+        <p className="text-sm text-blue-400">Google Cloud • 15+ Certificações Concluídas</p>
+      </div>
+    </div>
+    <span className="text-sm text-blue-400 bg-blue-500/20 px-3 py-1 rounded-full border border-blue-500/30">
+      ✅ Concluído • 2025
+    </span>
+  </div>
+  
+  <p className="text-gray-300 mb-4 leading-relaxed">
+    Coleção abrangente de <strong>15+ certificações técnicas Google Cloud</strong>, cobrindo desde 
+    fundamentos até especializações avançadas em infraestrutura, dados, machine learning e segurança.
+  </p>
+  
+  <div className="space-y-4">
+    <div>
+      <h5 className="text-purple-300 font-medium mb-2">🏆 Domínios Técnicos Abordados:</h5>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+        <div className="space-y-1">
+          <p className="text-xs text-blue-300 font-medium">🏗️ Infraestrutura</p>
+          <div className="flex flex-wrap gap-1">
+            <span className="px-2 py-1 text-xs bg-blue-500/20 text-blue-300 rounded-full">Compute Engine</span>
+            <span className="px-2 py-1 text-xs bg-blue-500/20 text-blue-300 rounded-full">Load Balancing</span>
+            <span className="px-2 py-1 text-xs bg-blue-500/20 text-blue-300 rounded-full">VPC & Network</span>
+          </div>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs text-green-300 font-medium">📊 Dados & ML</p>
+          <div className="flex flex-wrap gap-1">
+            <span className="px-2 py-1 text-xs bg-green-500/20 text-green-300 rounded-full">BigQuery</span>
+            <span className="px-2 py-1 text-xs bg-green-500/20 text-green-300 rounded-full">Data Pipelines</span>
+            <span className="px-2 py-1 text-xs bg-green-500/20 text-green-300 rounded-full">ML APIs</span>
+          </div>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs text-cyan-300 font-medium">🔐 Segurança & Ops</p>
+          <div className="flex flex-wrap gap-1">
+            <span className="px-2 py-1 text-xs bg-cyan-500/20 text-cyan-300 rounded-full">IAM</span>
+            <span className="px-2 py-1 text-xs bg-cyan-500/20 text-cyan-300 rounded-full">Network Security</span>
+            <span className="px-2 py-1 text-xs bg-cyan-500/20 text-cyan-300 rounded-full">Cloud Operations</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <h5 className="text-blue-300 font-medium mb-2">🎯 Trilhas de Especialização:</h5>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="p-3 bg-slate-800/30 rounded-lg border border-purple-500/20">
+          <div className="flex items-center space-x-2 mb-1">
+            <Server className="w-4 h-4 text-purple-400" />
+            <span className="text-sm font-medium text-purple-300">Infraestrutura Cloud</span>
+          </div>
+          <p className="text-xs text-gray-300">
+            Arquitetura, rede, segurança e otimização de infraestrutura GCP
+          </p>
+        </div>
+        <div className="p-3 bg-slate-800/30 rounded-lg border border-blue-500/20">
+          <div className="flex items-center space-x-2 mb-1">
+            <Database className="w-4 h-4 text-blue-400" />
+            <span className="text-sm font-medium text-blue-300">Dados & Analytics</span>
+          </div>
+          <p className="text-xs text-gray-300">
+            Processamento, análise e visualização de dados em escala
+          </p>
+        </div>
+        <div className="p-3 bg-slate-800/30 rounded-lg border border-green-500/20">
+          <div className="flex items-center space-x-2 mb-1">
+            <Bot className="w-4 h-4 text-green-400" />
+            <span className="text-sm font-medium text-green-300">Machine Learning</span>
+          </div>
+          <p className="text-xs text-gray-300">
+            Modelos de ML, APIs e pipelines de aprendizado automatizado
+          </p>
+        </div>
+        <div className="p-3 bg-slate-800/30 rounded-lg border border-cyan-500/20">
+          <div className="flex items-center space-x-2 mb-1">
+            <Cloud className="w-4 h-4 text-cyan-400" />
+            <span className="text-sm font-medium text-cyan-300">DevOps & Ops</span>
+          </div>
+          <p className="text-xs text-gray-300">
+            Operações, monitoramento e entrega contínua na nuvem
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div className="pt-4 border-t border-purple-500/20">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center space-x-2">
+          <Award className="w-4 h-4 text-blue-400" />
+          <span className="text-sm text-blue-400">Certificações Incluem:</span>
+        </div>
+        <div className="flex space-x-2">
+          <span className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded border border-purple-500/30">Fundamentos</span>
+          <span className="px-2 py-1 text-xs bg-blue-500/20 text-blue-300 rounded border border-blue-500/30">Associate</span>
+          <span className="px-2 py-1 text-xs bg-green-500/20 text-green-300 rounded border border-green-500/30">Professional</span>
+        </div>
+      </div>
+    </div>
+    
+    <div className="flex justify-center pt-2">
+      <Button
+        onClick={() => window.open('https://www.credly.com/users/patrick-brando', '_blank')}
+        className="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm rounded-lg hover:opacity-90 transition border-0"
+      >
+        <Eye className="w-4 h-4 mr-2" />
+        Ver todas as 15+ certificações no Credly
+      </Button>
+    </div>
+  </div>
 </div>
                   
                   {/* Fortinet */}
@@ -655,158 +967,6 @@ const timelineData = [
           </div>
         </div>
       </section>
-
-             {/* Experience jornada - REFATORADA */}
-<section id="timeline" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900/50 to-blue-950/30">
-  <div className="max-w-6xl mx-auto">
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="text-center mb-8 sm:mb-12 lg:mb-16"
-    >
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4 lg:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-        Minha Jornada
-      </h2>
-      <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-4">
-        Da descoberta da tecnologia às conquistas profissionais
-      </p>
-      <div className="w-16 sm:w-20 lg:w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mt-4 sm:mt-6"></div>
-    </motion.div>
-
-    {/* Timeline para mobile */}
-    <div className="md:hidden">
-      <div className="relative pl-8">
-        {/* Linha vertical para mobile */}
-        <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500/20 via-blue-500/40 to-purple-500/20"></div>
-        
-        <div className="space-y-6">
-          {timelineData.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative"
-            >
-              {/* Ponto na linha */}
-              <div className="absolute left-[-28px] top-6">
-                <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 border-white bg-gradient-to-r ${item.color} shadow-lg`}></div>
-              </div>
-
-              {/* Card */}
-              <Card className={`p-4 sm:p-5 bg-gradient-to-br ${item.color}/20 border-l-4 border-${item.color.split('-')[1]}-500/50 backdrop-blur-sm`}>
-                <div className="flex items-start space-x-3 sm:space-x-4">
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${item.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <span className="text-xl sm:text-2xl font-bold text-gray-200">{item.year}</span>
-                      <span className="text-xs px-2 py-1 bg-slate-800/50 text-cyan-300 rounded-full border border-cyan-500/30">
-                        {index === 1 ? "Atual" : index > 1 ? "Futuro" : "Passado"}
-                      </span>
-                    </div>
-                    <h3 className="text-lg sm:text-xl text-gray-100 mb-1 sm:mb-2">{item.title}</h3>
-                    <p className="text-sm sm:text-base text-gray-300 mb-3">{item.description}</p>
-                    <div className="space-y-1">
-                      {item.achievements.map((achievement, achievementIndex) => (
-                        <div key={achievementIndex} className="flex items-start space-x-2">
-                          <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-1.5"></div>
-                          <span className="text-xs sm:text-sm text-gray-400 flex-1">{achievement}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </div>
-
-    {/* Timeline para desktop */}
-    <div className="hidden md:block relative">
-      {/* Linha central */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-cyan-500/20 via-blue-500/40 to-purple-500/20"></div>
-      
-      <div className="space-y-8 lg:space-y-12">
-        {timelineData.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.2 }}
-            className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
-          >
-            {/* Conteúdo */}
-            <div className={`w-1/2 ${index % 2 === 0 ? 'pr-6 lg:pr-12' : 'pl-6 lg:pl-12'}`}>
-              <Card className={`p-5 lg:p-6 bg-gradient-to-br ${item.color}/20 border-${item.color.split('-')[1]}-500/30 backdrop-blur-sm hover:scale-105 transition-all duration-300`}>
-                <div className="flex items-start space-x-4">
-                  <div className={`w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r ${item.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                    <item.icon className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-3 mb-2">
-                      <span className="text-xl lg:text-2xl font-bold text-gray-200">{item.year}</span>
-                      <span className="text-xs lg:text-sm px-2 py-1 bg-slate-800/50 text-cyan-300 rounded-full border border-cyan-500/30">
-                        {index === 1 ? "Atual" : index > 1 ? "Futuro" : "Passado"}
-                      </span>
-                    </div>
-                    <h3 className="text-lg lg:text-xl text-gray-100 mb-2">{item.title}</h3>
-                    <p className="text-sm lg:text-base text-gray-300 mb-3 lg:mb-4">{item.description}</p>
-                    <div className="space-y-1 lg:space-y-2">
-                      {item.achievements.map((achievement, achievementIndex) => (
-                        <div key={achievementIndex} className="flex items-center space-x-2">
-                          <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></div>
-                          <span className="text-xs lg:text-sm text-gray-400">{achievement}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </div>
-
-            {/* Ponto na linha */}
-            <div className="absolute left-1/2 transform -translate-x-1/2">
-              <div className={`w-4 h-4 lg:w-6 lg:h-6 rounded-full border-2 lg:border-4 border-white bg-gradient-to-r ${item.color} shadow-lg`}></div>
-            </div>
-
-            {/* Espaço vazio */}
-            <div className="w-1/2"></div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-
-    {/* Call to Action no final */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="text-center mt-8 sm:mt-12 lg:mt-16"
-    >
-      <Card className="p-6 sm:p-8 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border-cyan-500/20 backdrop-blur-sm max-w-2xl mx-auto">
-        <h3 className="text-xl sm:text-2xl text-cyan-300 mb-3 sm:mb-4">Próxima Parada: Sua Empresa?</h3>
-        <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6">
-          Estou pronto para minha próxima oportunidade profissional. Vamos construir algo incrível juntos?
-        </p>
-        <Button
-          size="sm"
-          className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 border-0 text-sm sm:text-base"
-          onClick={() => scrollToSection('contact')}
-        >
-          <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-          Vamos Conversar
-        </Button>
-      </Card>
-    </motion.div>
-  </div>
-</section>
 
             {/* Experience Section */}
       <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -1071,6 +1231,170 @@ const timelineData = [
           </motion.div>
         </div>
       </section>
+
+      {/* Experience jornada */}
+<section id="timeline" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900/50 to-blue-950/30">
+  <div className="max-w-6xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-center mb-8 sm:mb-12 lg:mb-16"
+    >
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4 lg:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+        Minha Jornada
+      </h2>
+      <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-4">
+        Da descoberta da tecnologia às conquistas profissionais
+      </p>
+      <div className="w-16 sm:w-20 lg:w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mt-4 sm:mt-6"></div>
+    </motion.div>
+
+    {/* Timeline para mobile */}
+    <div className="md:hidden">
+      <div className="relative pl-8">
+        {/* Linha vertical para mobile */}
+        <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500/20 via-blue-500/40 to-purple-500/20"></div>
+        
+        <div className="space-y-6">
+          {timelineData.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="relative"
+            >
+              {/* Ponto na linha */}
+              <div className="absolute left-[-28px] top-6">
+                <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 border-white bg-gradient-to-r ${item.color} shadow-lg`}></div>
+              </div>
+
+              {/* Card */}
+              <Card className={`p-4 sm:p-5 bg-gradient-to-br ${item.color}/20 border-l-4 border-${item.color.split('-')[1]}-500/50 backdrop-blur-sm`}>
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${item.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <span className="text-xl sm:text-2xl font-bold text-gray-200">{item.year}</span>
+                      <span className={`text-xs px-2 py-1 rounded-full border ${
+                        item.status === "Concluído" 
+                          ? "bg-green-500/20 text-green-400 border-green-500/30" 
+                          : item.status === "Em andamento" 
+                          ? "bg-blue-500/20 text-blue-400 border-blue-500/30"
+                          : "bg-purple-500/20 text-purple-400 border-purple-500/30"
+                      }`}>
+                        {item.status}
+                      </span>
+                    </div>
+                    <h3 className="text-lg sm:text-xl text-gray-100 mb-1 sm:mb-2">{item.title}</h3>
+                    <p className="text-sm sm:text-base text-gray-300 mb-3">{item.description}</p>
+                    <div className="space-y-1">
+                      {item.achievements.map((achievement, achievementIndex) => (
+                        <div key={achievementIndex} className="flex items-start space-x-2">
+                          <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-1.5"></div>
+                          <span className="text-xs sm:text-sm text-gray-400 flex-1">{achievement}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Timeline para desktop */}
+    <div className="hidden md:block relative">
+      {/* Linha central */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-cyan-500/20 via-blue-500/40 to-purple-500/20"></div>
+      
+      <div className="space-y-8 lg:space-y-12">
+        {timelineData.map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.2 }}
+            className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+          >
+            {/* Conteúdo */}
+            <div className={`w-1/2 ${index % 2 === 0 ? 'pr-6 lg:pr-12' : 'pl-6 lg:pl-12'}`}>
+              <Card className={`p-5 lg:p-6 bg-gradient-to-br ${item.color}/20 border-${item.color.split('-')[1]}-500/30 backdrop-blur-sm hover:scale-105 transition-all duration-300`}>
+                <div className="flex items-start space-x-4">
+                  <div className={`w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r ${item.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                    <item.icon className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center space-x-3 mb-2">
+                      <span className="text-xl lg:text-2xl font-bold text-gray-200">{item.year}</span>
+                      <span className={`text-xs px-2 py-1 rounded-full border ${
+  item.status === "Concluído" 
+    ? "bg-green-500/20 text-green-400 border-green-500/30" 
+    : item.status === "Em andamento" 
+    ? "bg-blue-500/20 text-blue-400 border-blue-500/30"
+    : "bg-purple-500/20 text-purple-400 border-purple-500/30"
+}`}>
+  {item.status}
+</span>
+                    </div>
+                    <h3 className="text-lg lg:text-xl text-gray-100 mb-2">{item.title}</h3>
+                    <p className="text-sm lg:text-base text-gray-300 mb-3 lg:mb-4">{item.description}</p>
+                    <div className="space-y-1 lg:space-y-2">
+                      {item.achievements.map((achievement, achievementIndex) => (
+                        <div key={achievementIndex} className="flex items-center space-x-2">
+                          <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></div>
+                          <span className="text-xs lg:text-sm text-gray-400">{achievement}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            {/* Ponto na linha */}
+            <div className="absolute left-1/2 transform -translate-x-1/2">
+              <div className={`w-4 h-4 lg:w-6 lg:h-6 rounded-full border-2 lg:border-4 border-white bg-gradient-to-r ${item.color} shadow-lg`}></div>
+            </div>
+
+            {/* Espaço vazio */}
+            <div className="w-1/2"></div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+
+    {/* Call to Action no final */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-center mt-8 sm:mt-12 lg:mt-16"
+    >
+      <Card className="p-6 sm:p-8 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border-cyan-500/20 backdrop-blur-sm max-w-2xl mx-auto">
+        <h3 className="text-xl sm:text-2xl text-cyan-300 mb-3 sm:mb-4">Próxima Parada: Sua Empresa?</h3>
+        <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6">
+          Estou pronto para minha próxima oportunidade profissional. Vamos construir algo incrível juntos?
+        </p>
+        <Button
+          size="sm"
+          className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 border-0 text-sm sm:text-base"
+          onClick={() => scrollToSection('contact')}
+        >
+          <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+          Vamos Conversar
+        </Button>
+      </Card>
+    </motion.div>
+  </div>
+</section>
 
       {/* Projects Section */}
 <section id="projects" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900/50 to-blue-900/20">
