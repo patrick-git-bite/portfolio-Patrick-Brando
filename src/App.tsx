@@ -20,6 +20,7 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
+  const [activeSkillTab, setActiveSkillTab] = useState('frontend');
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
  const openProjectModal = (project: string) => {
@@ -160,6 +161,62 @@ const closeProjectModal = () => {
     gradient: "from-violet-600/20 to-purple-600/20",
     borderColor: "border-violet-500/30"
   }
+];
+
+const skillCategories = [
+  {
+    id: 'frontend',
+    label: '🌐 Frontend',
+    skills: [
+      { name: 'Next.js', level: 'Intermediário', color: 'from-slate-300 to-white', width: '70%', icon: Globe },
+      { name: 'React', level: 'Intermediário', color: 'from-cyan-500 to-blue-500', width: '65%', icon: Code },
+      { name: 'TypeScript', level: 'Intermediário', color: 'from-blue-400 to-cyan-500', width: '65%', icon: Code },
+      { name: 'JavaScript', level: 'Intermediário', color: 'from-yellow-400 to-orange-500', width: '65%', icon: Code },
+      { name: 'TailwindCSS', level: 'Intermediário', color: 'from-teal-400 to-cyan-500', width: '60%', icon: Code },
+      { name: 'HTML & CSS', level: 'Básico', color: 'from-orange-500 to-red-500', width: '55%', icon: Code },
+    ]
+  },
+  {
+    id: 'backend',
+    label: '⚙️ Backend',
+    skills: [
+      { name: 'NestJS', level: 'Intermediário', color: 'from-red-500 to-pink-500', width: '65%', icon: Server },
+      { name: 'Node.js', level: 'Intermediário', color: 'from-green-400 to-green-600', width: '65%', icon: Server },
+      { name: 'Python', level: 'Intermediário', color: 'from-yellow-500 to-green-500', width: '65%', icon: Code },
+      { name: 'REST APIs', level: 'Intermediário', color: 'from-blue-500 to-purple-500', width: '65%', icon: Globe },
+      { name: 'Swagger / OpenAPI', level: 'Básico', color: 'from-green-500 to-teal-500', width: '40%', icon: FileText },
+    ]
+  },
+  {
+    id: 'database',
+    label: '🗄️ Dados',
+    skills: [
+      { name: 'PostgreSQL', level: 'Intermediário', color: 'from-blue-500 to-indigo-500', width: '60%', icon: Database },
+      { name: 'SQL', level: 'Intermediário', color: 'from-purple-500 to-pink-500', width: '60%', icon: Database },
+      { name: 'Redis', level: 'Básico', color: 'from-red-500 to-orange-500', width: '45%', icon: Database },
+      { name: 'Apache Kafka', level: 'Básico', color: 'from-slate-500 to-gray-400', width: '40%', icon: Zap },
+      { name: 'TypeORM', level: 'Básico', color: 'from-orange-400 to-yellow-500', width: '40%', icon: Database },
+    ]
+  },
+  {
+    id: 'devops',
+    label: '🐳 DevOps',
+    skills: [
+      { name: 'Docker', level: 'Básico', color: 'from-blue-500 to-cyan-500', width: '50%', icon: Server },
+      { name: 'Ubuntu Linux', level: 'Intermediário', color: 'from-orange-500 to-red-500', width: '60%', icon: Monitor },
+      { name: 'Git & GitHub', level: 'Intermediário', color: 'from-gray-500 to-purple-500', width: '65%', icon: GitBranch },
+    ]
+  },
+  {
+    id: 'extras',
+    label: '☁️ Extras',
+    skills: [
+      { name: 'Google Cloud', level: 'Intermediário', color: 'from-blue-400 to-yellow-400', width: '60%', icon: Cloud },
+      { name: 'VS Code', level: 'Avançado', color: 'from-blue-500 to-cyan-500', width: '80%', icon: Code },
+      { name: 'Lógica de Programação', level: 'Intermediário', color: 'from-purple-500 to-pink-500', width: '70%', icon: GitBranch },
+      { name: 'Scrum & Kanban', level: 'Intermediário', color: 'from-green-500 to-teal-500', width: '65%', icon: Users },
+    ]
+  },
 ];
 
 const timelineData = [
@@ -428,21 +485,20 @@ const timelineData = [
             >
               <Card className="p-8 bg-gradient-to-br from-slate-800/50 to-purple-900/20 border-purple-500/20 backdrop-blur-sm">
   <p className="text-lg text-gray-300 leading-relaxed mb-6">
-    Tecnólogo com mentalidade voltada para resultados e inovação escalável. 
-    Minha jornada profissional combina expertise técnica certificada em Google Cloud 
-    com experiência prática em projetos que exigem pensamento estratégico e execução precisa.
+    Desenvolvedor Full-Stack no <strong>DataCrazy CRM</strong>, construindo soluções de alto desempenho
+    com <strong>NestJS</strong>, <strong>Next.js</strong>, <strong>PostgreSQL</strong>, <strong>Redis</strong> e <strong>Kafka</strong>.
+    Apaixonado por microsserviços, arquitetura escalável e pelo poder do <strong>Docker</strong> no dia a dia.
   </p>
-  
+
   <p className="text-lg text-gray-300 leading-relaxed mb-6">
-    Especialista em traduzir necessidades de negócio em soluções tecnológicas eficientes. 
-    Com foco em cloud architecture, automação inteligente e análise de dados, desenvolvo 
-    sistemas que não apenas resolvem problemas imediatos, mas criam vantagens competitivas duradouras.
+    Certificado em <strong>Google Cloud</strong> com foco em dados e infraestrutura, cursando
+    <strong> Análise e Desenvolvimento de Sistemas</strong> na Uniftec. Movido pela curiosidade
+    e pela busca constante de código limpo e soluções que escalam.
   </p>
-  
+
   <p className="text-lg text-gray-300 leading-relaxed">
-    Atuo na interseção entre tecnologia e negócios, implementando soluções que otimizam 
-    operações, reduzem custos e impulsionam crescimento. Busco constantemente desafios 
-    em ambientes corporativos onde a excelência técnica e a inovação são valorizadas.
+    Acredito que boa tecnologia nasce da combinação entre <strong>código bem escrito</strong>,
+    <strong> arquitetura pensada</strong> e entrega contínua. Sempre em busca do próximo desafio.
   </p>
 </Card>
             </motion.div>
@@ -453,59 +509,52 @@ const timelineData = [
               viewport={{ once: true }}
               className="space-y-4"
             >
-              <h3 className="text-xl mb-6 text-gray-200">Minhas Competências Atuais:</h3>
-          <div className="grid grid-cols-1 gap-3">
-  {[
-    // Ordenado do MAIOR para o MENOR nível
-    { name: 'Ferramentas Office', level: 'Avançado', color: 'from-red-500 to-orange-500', width: '70%', icon: FileText },
-    { name: 'Python', level: 'Intermediário', color: 'from-yellow-500 to-green-500', width: '65%', icon: Bot },
-    { name: 'Lógica de Programação', level: 'Intermediário', color: 'from-purple-500 to-pink-500', width: '65%', icon: GitBranch },
-    { name: 'Google Cloud', level: 'Intermediário', color: 'from-green-500 to-teal-500', width: '60%', icon: Cloud },
-    { name: 'Git & GitHub', level: 'Intermediário', color: 'from-gray-500 to-purple-500', width: '60%', icon: GitBranch },
-    { name: 'VS Code', level: 'Intermediário', color: 'from-blue-500 to-cyan-500', width: '60%', icon: Code },
-    { name: 'C', level: 'Básico', color: 'from-blue-500 to-purple-500', width: '50%', icon: Code },
-    { name: 'HTML & CSS', level: 'Básico', color: 'from-orange-500 to-red-500', width: '50%', icon: Code },
-    { name: 'SQL & Banco de Dados', level: 'Básico', color: 'from-purple-500 to-pink-500', width: '50%', icon: Database },
-    { name: 'Windows Server', level: 'Básico', color: 'from-blue-600 to-cyan-500', width: '50%', icon: Server },
-    { name: 'TypeScript', level: 'Básico', color: 'from-blue-400 to-cyan-500', width: '45%', icon: Code },
-    { name: 'Firebase', level: 'Básico', color: 'from-yellow-500 to-orange-500', width: '45%', icon: Cloud },
-    { name: 'Vercel', level: 'Básico', color: 'from-gray-400 to-black', width: '45%', icon: Cloud },
-    { name: 'JavaScript', level: 'Aprendendo', color: 'from-yellow-400 to-orange-500', width: '40%', icon: Code },
-    { name: 'React', level: 'Aprendendo', color: 'from-cyan-500 to-blue-500', width: '40%', icon: Code },
-    { name: 'Power BI', level: 'Iniciante', color: 'from-yellow-600 to-orange-600', width: '30%', icon: BarChart3 },
-    { name: 'Node.js', level: 'Iniciante', color: 'from-green-400 to-green-600', width: '30%', icon: Code }
-  ].map((skill, index) => (
-    <motion.div
-      key={skill.name}
-      initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      className="p-3 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-lg border border-blue-500/30 backdrop-blur-sm hover:scale-105 transition-transform group"
-    >
-      <div className="flex justify-between items-center">
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg flex items-center justify-center">
-            <skill.icon className="w-4 h-4 text-blue-400" />
-          </div>
-          <span className="text-blue-300 font-medium text-sm">{skill.name}</span>
-        </div>
-        <span className="text-xs text-gray-400 bg-slate-800/50 px-2 py-1 rounded-full">
-          {skill.level}
-        </span>
-      </div>
-      <div className="mt-2 h-1.5 bg-slate-700 rounded-full overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: skill.width }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.1 + 0.3, duration: 0.8 }}
-          className={`h-full bg-gradient-to-r ${skill.color} rounded-full`}
-        />
-      </div>
-    </motion.div>
-  ))}
-</div>
+              <h3 className="text-xl mb-4 text-gray-200">Stack Atual & Competências:</h3>
+
+              <div className="flex flex-wrap gap-2 mb-5">
+                {skillCategories.map(cat => (
+                  <button
+                    key={cat.id}
+                    onClick={() => setActiveSkillTab(cat.id)}
+                    className={'px-3 py-1.5 text-sm rounded-full border transition-all duration-200 ' + (activeSkillTab === cat.id ? 'bg-blue-600/40 border-blue-400 text-blue-300 shadow-sm shadow-blue-500/20' : 'border-slate-600 text-gray-400 hover:border-blue-500/50 hover:text-gray-300 bg-slate-800/30')}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-1 gap-3">
+                {(skillCategories.find(c => c.id === activeSkillTab)?.skills ?? []).map((skill, index) => (
+                  <motion.div
+                    key={activeSkillTab + skill.name}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    className="p-3 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-lg border border-blue-500/30 backdrop-blur-sm hover:scale-105 transition-transform group"
+                  >
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg flex items-center justify-center">
+                          <skill.icon className="w-4 h-4 text-blue-400" />
+                        </div>
+                        <span className="text-blue-300 font-medium text-sm">{skill.name}</span>
+                      </div>
+                      <span className="text-xs text-gray-400 bg-slate-800/50 px-2 py-1 rounded-full">
+                        {skill.level}
+                      </span>
+                    </div>
+                    <div className="mt-2 h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                      <motion.div
+                        key={activeSkillTab + skill.name + '-bar'}
+                        initial={{ width: 0 }}
+                        animate={{ width: skill.width }}
+                        transition={{ delay: index * 0.05 + 0.2, duration: 0.6 }}
+                        className={'h-full bg-gradient-to-r ' + skill.color + ' rounded-full'}
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
               
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
