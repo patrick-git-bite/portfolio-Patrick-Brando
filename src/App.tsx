@@ -179,6 +179,15 @@ const timelineData = [
     icon: Target,
     color: "from-green-500 to-teal-500",
     achievements: ["Automação de processos", "Desenvolvimento full-stack", "Gestão de infraestrutura"],
+    status: "Concluído"
+  },
+  { 
+    year: "2026", 
+    title: "Desenvolvedor Full-Stack @ DataCrazy", 
+    description: "Desenvolvedor CRM - DataCrazy",
+    icon: Code,
+    color: "from-cyan-500 to-blue-500",
+    achievements: ["NestJS & Next.js", "Kafka & Redis & Docker", "PostgreSQL & microsserviços"],
     status: "Em andamento"
   },
   { 
@@ -335,7 +344,7 @@ const timelineData = [
           transition={{ delay: 0.4 }}
           className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-4 md:mb-6"
         >
-          Desenvolvedor e Analista de Sistemas
+          Desenvolvedor Full-Stack @ DataCrazy CRM
         </motion.h2>
         
         <motion.p 
@@ -344,9 +353,9 @@ const timelineData = [
           transition={{ delay: 0.6 }}
           className="text-base sm:text-lg text-gray-400 mb-6 md:mb-8 leading-relaxed"
         >
-            Em constante evolução técnica, especializado em soluções escaláveis para grandes empresas. 
-  Combino expertise em cloud computing, automação e análise de dados para otimizar processos 
-  e impulsionar resultados em ambientes corporativos de alto desempenho.
+            Construindo o CRM do futuro com NestJS, Next.js, PostgreSQL, Redis e Kafka.
+  Apaixonado por microsserviços, arquitetura escalável e por transformar
+  código em produto real de alto impacto.
         </motion.p>
       </div>
 
@@ -999,46 +1008,48 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
                 
                 <div className="flex-1">
                   <div className="mb-6">
-                    <h3 className="text-2xl text-purple-300 mb-2">Analista / Suporte de TI</h3>
-                    <p className="text-xl text-gray-300 mb-2">Detella Restaurantes Empresariais</p>
+                    <h3 className="text-2xl text-purple-300 mb-2">Desenvolvedor Full-Stack</h3>
+                    <p className="text-xl text-gray-300 mb-2">DataCrazy CRM</p>
                     <p className="text-sm text-gray-400 mb-4 flex items-center">
                       <Calendar className="w-4 h-4 mr-2" />
-                      Julho 2025 – Atual • Trabalho Individual com Autonomia Total
+                      2026 – Atual • Desenvolvimento de CRM
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm border border-blue-500/30">
                         Desenvolvedor Full-Stack
                       </span>
+                      <span className="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm border border-cyan-500/30">
+                        Backend NestJS
+                      </span>
                       <span className="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm border border-green-500/30">
-                        Engenheiro de Automação
+                        Microsserviços & Kafka
                       </span>
                       <span className="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm border border-orange-500/30">
-                        Administrador de Sistemas
-                      </span>
-                      <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm border border-indigo-500/30">
-                        Gestor Estratégico de TI
+                        DevOps & Docker
                       </span>
                     </div>
                   </div>
                   
                   <div className="space-y-6">
                     <p className="text-gray-300 leading-relaxed text-lg">
-                      Atuo como único responsável pela área de TI, combinando desenvolvimento full-stack, 
-                      automação de processos e gestão de infraestrutura para otimizar operações empresariais.
+                      Atuo como Desenvolvedor Full-Stack no <strong>DataCrazy CRM</strong>, construindo
+                      funcionalidades e integrações de alto impacto com <strong>NestJS</strong>, <strong>Next.js</strong>,
+                      <strong>PostgreSQL</strong>, <strong>Redis</strong> e <strong>Kafka</strong> em ambiente
+                      containerizado com <strong>Docker</strong> no <strong>Ubuntu</strong>.
                     </p>
                     
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-4">
                         <h4 className="text-lg text-blue-300 font-medium mb-3 flex items-center">
                           <Code className="w-5 h-5 mr-2" />
-                          Desenvolvimento Full-Stack
+                          Frontend — Next.js
                         </h4>
                         <div className="space-y-3">
                           {[
-                            "Construção de aplicações internas com Next.js/TypeScript",
-                            "Desenvolvimento em C# e integração com Firebase", 
-                            "Migração de soluções legadas para modernas",
-                            "Melhoria contínua da experiência do usuário"
+                            "Desenvolvimento de interfaces do CRM com Next.js e TypeScript",
+                            "Componentização reutilizável com React",
+                            "Estilização com TailwindCSS",
+                            "Integração com APIs REST do backend NestJS"
                           ].map((item, index) => (
                             <div key={index} className="flex items-center space-x-3">
                               <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
@@ -1050,15 +1061,15 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
                       
                       <div className="space-y-4">
                         <h4 className="text-lg text-green-300 font-medium mb-3 flex items-center">
-                          <Bot className="w-5 h-5 mr-2" />
-                          Engenharia de Automação
+                          <Server className="w-5 h-5 mr-2" />
+                          Backend — NestJS
                         </h4>
                         <div className="space-y-3">
                           {[
-                            "Liderança em scripts Python e RPA (UiPath)",
-                            "Projeto 'Automações implementados'",
-                            "Integração entre sistemas corporativos",
-                            "Eliminação de processos manuais repetitivos"
+                            "Construção de APIs RESTful com NestJS e TypeScript",
+                            "Modelagem e queries avançadas com PostgreSQL",
+                            "Cache e sessões distribuídas com Redis",
+                            "Eventos assíncronos e filas com Apache Kafka"
                           ].map((item, index) => (
                             <div key={index} className="flex items-center space-x-3">
                               <div className="w-2 h-2 bg-green-400 rounded-full"></div>
@@ -1072,15 +1083,15 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
                     <div className="grid md:grid-cols-2 gap-6 mt-6">
                       <div className="space-y-4">
                         <h4 className="text-lg text-orange-300 font-medium mb-3 flex items-center">
-                          <Server className="w-5 h-5 mr-2" />
-                          Infraestrutura & Segurança
+                          <Settings className="w-5 h-5 mr-2" />
+                          Infra & DevOps
                         </h4>
                         <div className="space-y-3">
                           {[
-                            "Gestão de servidores, backup e VPN corporativa",
-                            "Administração de segurança de rede (Firewalls)",
-                            "Configuração e manutenção de VPN SSL",
-                            "Garantia da resiliência operacional"
+                            "Containerização de serviços com Docker e Docker Compose",
+                            "Ambiente de desenvolvimento em Ubuntu Linux",
+                            "Gerenciamento de variáveis de ambiente e secrets",
+                            "Monitoramento e troubleshooting de containers"
                           ].map((item, index) => (
                             <div key={index} className="flex items-center space-x-3">
                               <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
@@ -1093,14 +1104,14 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
                       <div className="space-y-4">
                         <h4 className="text-lg text-purple-300 font-medium mb-3 flex items-center">
                           <GitBranch className="w-5 h-5 mr-2" />
-                          Gestão Ágil & Metodologias
+                          Metodologias & Qualidade
                         </h4>
                         <div className="space-y-3">
                           {[
-                            "Aplicação prática de Scrum/Kanban",
-                            "Priorização estratégica de demandas de TI",
-                            "Alinhamento tecnologia-negócio",
-                            "Documentação de processos e entregáveis"
+                            "Git Flow e code review colaborativo",
+                            "Scrum e sprints com entregas contínuas",
+                            "Documentação de APIs com Swagger/OpenAPI",
+                            "Testes e validação de integrações"
                           ].map((item, index) => (
                             <div key={index} className="flex items-center space-x-3">
                               <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
@@ -1111,23 +1122,23 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
                       </div>
                     </div>
 
-                    {/* Gestão Estratégica & Business Intelligence */}
+                    {/* Arquitetura de Microsserviços */}
                     <div className="mt-6 p-6 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-lg border border-indigo-500/30">
                       <h4 className="text-lg text-indigo-300 font-medium mb-4 flex items-center">
-                        <BarChart3 className="w-5 h-5 mr-2" />
-                        Gestão Estratégica & Business Intelligence
+                        <Database className="w-5 h-5 mr-2" />
+                        Arquitetura & Integrações
                       </h4>
                       
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-4">
-                          <h5 className="text-sm text-indigo-200 font-medium mb-2">📊 Business Intelligence & Orçamento</h5>
+                          <h5 className="text-sm text-indigo-200 font-medium mb-2">⚡ Mensageria & Eventos</h5>
                           <div className="space-y-2">
                             {[
-                              "Desenvolvimento de dashboards estratégicos para diretoria",
-                              "Análise de dados para tomada de decisão executiva", 
-                              "Planejamento e controle de orçamento de TI",
-                              "Definição de métricas e KPIs de negócio",
-                              "Relatórios de performance para gestão"
+                              "Arquitetura orientada a eventos com Apache Kafka",
+                              "Producers e Consumers para comunicação assíncrona",
+                              "Cache distribuído e pub/sub com Redis",
+                              "Filas de processamento e retry policies",
+                              "Integração entre microsserviços desacoplados"
                             ].map((item, index) => (
                               <div key={index} className="flex items-center space-x-3">
                                 <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div>
@@ -1138,14 +1149,14 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
                         </div>
                         
                         <div className="space-y-4">
-                          <h5 className="text-sm text-indigo-200 font-medium mb-2">🤝 Negociação & Governança</h5>
+                          <h5 className="text-sm text-indigo-200 font-medium mb-2">🗄️ Dados & Persistência</h5>
                           <div className="space-y-2">
                             {[
-                              "Negociação direta com diretoria sobre prioridades de TI",
-                              "Mediação entre necessidades técnicas e de negócio",
-                              "Definição de roadmap tecnológico alinhado à estratégia",
-                              "Gestão de expectativas e comunicação executiva",
-                              "Governança de TI com foco em resultados empresariais"
+                              "Modelagem relacional e queries otimizadas em PostgreSQL",
+                              "Migrations e versionamento de schema",
+                              "ORM com TypeORM / Prisma no NestJS",
+                              "Estratégias de indexação para alta performance",
+                              "Backup e consistência de dados em produção"
                             ].map((item, index) => (
                               <div key={index} className="flex items-center space-x-3">
                                 <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div>
@@ -1166,11 +1177,11 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
                       
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-4">
-                          <h5 className="text-sm text-blue-300 font-medium mb-2">🚀 Frontend & Full-Stack</h5>
+                          <h5 className="text-sm text-blue-300 font-medium mb-2">🌐 Frontend</h5>
                           <div className="flex flex-wrap gap-2">
                             {[
-                              "Next.js", "TypeScript", "JavaScript", "HTML/CSS", 
-                              "React", "Tailwind CSS"
+                              "Next.js", "React", "TypeScript", "JavaScript",
+                              "Tailwind CSS", "HTML/CSS"
                             ].map((skill, index) => (
                               <span key={index} className="px-2 py-1 text-xs bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30">
                                 {skill}
@@ -1180,11 +1191,11 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
                         </div>
                         
                         <div className="space-y-4">
-                          <h5 className="text-sm text-green-300 font-medium mb-2">⚙️ Backend & Infraestrutura</h5>
+                          <h5 className="text-sm text-green-300 font-medium mb-2">⚙️ Backend</h5>
                           <div className="flex flex-wrap gap-2">
                             {[
-                              "Python", "C#", "Firebase", "Google Cloud", 
-                              "Windows Server", "SQL"
+                              "NestJS", "Node.js", "TypeScript", "REST APIs",
+                              "Swagger / OpenAPI", "Python"
                             ].map((skill, index) => (
                               <span key={index} className="px-2 py-1 text-xs bg-green-500/20 text-green-300 rounded-full border border-green-500/30">
                                 {skill}
@@ -1196,11 +1207,11 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
 
                       <div className="grid md:grid-cols-2 gap-6 mt-4">
                         <div className="space-y-4">
-                          <h5 className="text-sm text-orange-300 font-medium mb-2">🤖 Automação & Ferramentas</h5>
+                          <h5 className="text-sm text-orange-300 font-medium mb-2">🗄️ Dados & Mensageria</h5>
                           <div className="flex flex-wrap gap-2">
                             {[
-                              "UiPath (RPA)", "Power Automate", "Scripts Python",
-                              "Automação de Processos"
+                              "PostgreSQL", "Redis", "Apache Kafka",
+                              "TypeORM", "SQL"
                             ].map((skill, index) => (
                               <span key={index} className="px-2 py-1 text-xs bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30">
                                 {skill}
@@ -1210,11 +1221,11 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
                         </div>
                         
                         <div className="space-y-4">
-                          <h5 className="text-sm text-cyan-300 font-medium mb-2">📊 Gestão & Metodologias</h5>
+                          <h5 className="text-sm text-cyan-300 font-medium mb-2">🐧 Infra & DevOps</h5>
                           <div className="flex flex-wrap gap-2">
                             {[
-                              "Scrum", "Kanban", "Gestão de Projetos",
-                              "Metodologias Ágeis"
+                              "Docker", "Docker Compose", "Ubuntu Linux",
+                              "Git", "GitHub", "Scrum / Kanban"
                             ].map((skill, index) => (
                               <span key={index} className="px-2 py-1 text-xs bg-cyan-500/20 text-cyan-300 rounded-full border border-cyan-500/30">
                                 {skill}
