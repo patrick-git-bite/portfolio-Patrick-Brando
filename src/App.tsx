@@ -11,7 +11,7 @@ import { Card } from './components/ui/card';
 import { Input } from './components/ui/input';
 import { Textarea } from './components/ui/textarea';
 import { toast } from "sonner";
-import patrickImage from "./assets/foto.jpg";
+import patrickImage from "./assets/foto-BYGoSknv.jpg";
 import { Analytics } from "@vercel/analytics/next"
 import assetwiseDashboard from "./assets/assetwise-dashboard.jpg";
 import assetwiseIA from "./assets/assetwise-ia.jpg";
