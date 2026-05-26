@@ -4,7 +4,7 @@ import {
   Mail, Phone, Github, Linkedin, Menu, X, Calendar, MapPin, 
   Bot, BarChart3, Code, Monitor, Cloud, Gamepad2, Zap, 
   TrendingUp, Globe, Settings, Sparkles, Heart, Users, 
-  Coffee, Database, Server, Target, Clock, FileText, GitBranch, Eye, Lock, GraduationCap, Award   
+  Coffee, Database, Server, Target, Clock, FileText, GitBranch, Eye, Lock, GraduationCap, Award, CheckCircle, XCircle, Send   
 } from 'lucide-react';
 import { Button } from './components/ui/button';
 import { Card } from './components/ui/card';
@@ -34,6 +34,7 @@ const closeProjectModal = () => {
   // Estados para guardar os dados do formulário e o status de envio.
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   // Função para atualizar o estado conforme o usuário digita.
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -44,30 +45,44 @@ const closeProjectModal = () => {
   // Função que envia os dados para a API quando o formulário é submetido.
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (isSubmitting) return; // Previne envios duplicados
+    if (isSubmitting) return;
 
     setIsSubmitting(true);
+    setFormStatus('idle');
     toast.info('Enviando sua mensagem...');
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
 
     try {
       const res = await fetch("/api/sendmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeout);
 
       if (res.ok) {
         toast.success('Mensagem enviada com sucesso! Entrarei em contato em breve.');
-        setFormData({ name: '', email: '', message: '' }); // Limpa o formulário
+        setFormData({ name: '', email: '', message: '' });
+        setFormStatus('success');
       } else {
         const data = await res.json();
         toast.error(`Erro ao enviar: ${data.message || 'Tente novamente.'}`);
+        setFormStatus('error');
       }
-    } catch (err) {
-      console.error(err);
-      toast.error("Ocorreu um erro de conexão. Verifique sua internet.");
+    } catch (err: any) {
+      clearTimeout(timeout);
+      if (err?.name === 'AbortError') {
+        toast.error('Tempo esgotado. Tente novamente.');
+      } else {
+        toast.error("Ocorreu um erro de conexão. Verifique sua internet.");
+      }
+      setFormStatus('error');
     } finally {
-      setIsSubmitting(false); // Reabilita o botão
+      setIsSubmitting(false);
     }
   };
 
@@ -76,7 +91,7 @@ const closeProjectModal = () => {
 
    useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'education', 'experience', 'services', 'contact'];
+      const sections = ['home', 'about', 'education', 'experience', 'timeline', 'projects', 'services', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -321,7 +336,8 @@ const timelineData = [
                 { id: 'about', label: 'Sobre' },
                 { id: 'education', label: 'Formação' },
                 { id: 'experience', label: 'Experiência' },
-                 { id: 'timeline', label: 'Jornada' }, 
+                { id: 'timeline', label: 'Jornada' },
+                { id: 'projects', label: 'Projetos' },
                 { id: 'services', label: 'Serviços' },
                 { id: 'contact', label: 'Contato' }
               ].map((item) => (
@@ -358,6 +374,8 @@ const timelineData = [
                 { id: 'about', label: 'Sobre' },
                 { id: 'education', label: 'Formação' },
                 { id: 'experience', label: 'Experiência' },
+                { id: 'timeline', label: 'Jornada' },
+                { id: 'projects', label: 'Projetos' },
                 { id: 'services', label: 'Serviços' },
                 { id: 'contact', label: 'Contato' }
               ].map((item) => (
@@ -746,7 +764,7 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
     
     <div className="flex justify-center pt-2">
       <a 
-        href="#" 
+        href="https://www.credly.com/earner/earned/badge/d28809ac-7497-485e-9b04-d3f7041dd6b6" 
         target="_blank" 
         rel="noopener noreferrer"
         className="px-4 py-2 bg-gradient-to-r from-yellow-600 to-green-600 text-white text-sm rounded-lg hover:opacity-90 transition"
@@ -1047,7 +1065,7 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
             viewport={{ once: true }}
             className="max-w-5xl mx-auto"
           >
-            <Card className="p-8 bg-gradient-to-br from-purple-900/20 to-blue-900/20 border-purple-500/30 backdrop-blur-sm hover:scale-105 transition-transform duration-300">
+            <Card className="p-8 bg-gradient-to-br from-purple-900/20 to-blue-900/20 border-purple-500/30 backdrop-blur-sm hover:border-purple-400/50 transition-colors duration-300">
               <div className="flex flex-col lg:flex-row lg:items-start space-y-6 lg:space-y-0 lg:space-x-8">
                 <div className="flex-shrink-0">
                   <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center">
@@ -2323,7 +2341,7 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
             className="border-purple-500/50 text-purple-300 hover:bg-purple-500/10"
             onClick={() => {
               const subject = encodeURIComponent("Orçamento Gratuito - Projeto");
-              const body = encodeURIComponent("Olá Patrick! Gostaria de solicitar um orçamento gratuito para o seguinte projeto:\n\n• Tipo de projeto:\n• Descrição breve:\n• Prazo estimado:\n• Orçamento disponível:\n\nAguardo seu retorno!");
+              const body = encodeURIComponent(`Olá Patrick! Gostaria de solicitar um orçamento gratuito para o seguinte projeto:\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📋 INFORMAÇÕES DO PROJETO:\n\n• Tipo de projeto: [Site, App, Automação, Dashboard, API...]\n• Descrição breve: [Descreva sua ideia em 2-3 frases]\n• Público-alvo: [Quem vai usar?]\n\n⏰ PRAZOS E ORÇAMENTO:\n\n• Prazo desejado: [Ex: 2 semanas, 1 mês...]\n• Orçamento disponível: [Opcional - ajuda a definir o escopo]\n• Urgência: [Baixa / Média / Alta]\n\n🎯 FUNCIONALIDADES DESEJADAS:\n\n• [ ] \n• [ ] \n• [ ] \n\n💬 OBSERVAÇÕES ADICIONAIS:\n\n[Qualquer outra informação relevante]\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nAguardo seu retorno! 🚀`);
               window.location.href = `mailto:patrickbrando18102003@gmail.com?subject=${subject}&body=${body}`;
             }}
           >
@@ -2335,6 +2353,50 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
     </motion.div>
   </div>
 </section>
+
+      {/* CV / Resume Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Card className="p-8 md:p-12 bg-gradient-to-r from-blue-900/30 to-cyan-900/30 border-blue-500/30 backdrop-blur-sm text-center">
+              <div className="flex justify-center mb-4">
+                <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
+                  <FileText className="w-7 h-7 text-white" />
+                </div>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                Currículo
+              </h3>
+              <p className="text-gray-400 mb-8 max-w-lg mx-auto">
+                Quer conhecer minha trajetória completa? Visualize ou baixe meu currículo atualizado.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <a
+                  href="/projects/Patrick_Brando_CV_EN.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-medium rounded-lg transition-all duration-200"
+                >
+                  <Eye className="mr-2 h-5 w-5" />
+                  Visualizar CV
+                </a>
+                <a
+                  href="/projects/Patrick_Brando_CV_EN.pdf"
+                  download="Patrick_Brando_CV.pdf"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 font-medium rounded-lg transition-all duration-200"
+                >
+                  <FileText className="mr-2 h-5 w-5" />
+                  Download PDF
+                </a>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -2473,12 +2535,37 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
                   <Button
                     type="submit"
                     size="lg"
-                    disabled={isSubmitting} // Desabilita o botão durante o envio
+                    disabled={isSubmitting}
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-0 h-12 disabled:opacity-50"
                   >
-                    <Heart className="mr-2 h-5 w-5" />
-                    {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+                    {isSubmitting ? (
+                      <><span className="animate-spin mr-2">⏳</span> Enviando...</>
+                    ) : (
+                      <><Send className="mr-2 h-5 w-5" /> Enviar Mensagem</>
+                    )}
                   </Button>
+
+                  {/* Status feedback */}
+                  {formStatus === 'success' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-center gap-3 p-4 bg-green-500/10 border border-green-500/30 rounded-lg"
+                    >
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                      <p className="text-sm text-green-300">Mensagem enviada com sucesso! Responderei em até 24h.</p>
+                    </motion.div>
+                  )}
+                  {formStatus === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-center gap-3 p-4 bg-red-500/10 border border-red-500/30 rounded-lg"
+                    >
+                      <XCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
+                      <p className="text-sm text-red-300">Falha ao enviar. Tente novamente ou me contate pelo WhatsApp.</p>
+                    </motion.div>
+                  )}
                 </form>
               </Card>
             </motion.div>
@@ -2500,13 +2587,15 @@ superam expectativas e estabelecem bases para crescimento sustentável.""
           </div>
           
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400">© 2025 Patrick Brando. Evoluindo e Aprendendo.</p>
-            <div className="flex space-x-8">
+            <p className="text-gray-400">© 2026 Patrick Brando. Evoluindo e Aprendendo.</p>
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
               {[
                 { id: 'home', label: 'Início' },
                 { id: 'about', label: 'Sobre' },
                 { id: 'education', label: 'Formação' },
                 { id: 'experience', label: 'Experiência' },
+                { id: 'timeline', label: 'Jornada' },
+                { id: 'projects', label: 'Projetos' },
                 { id: 'services', label: 'Serviços' },
                 { id: 'contact', label: 'Contato' }
               ].map((item) => (
