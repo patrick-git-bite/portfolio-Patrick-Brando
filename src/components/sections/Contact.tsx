@@ -90,7 +90,7 @@ export default function Contact() {
     <section id="contact" className="border-t border-line px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          index="07. Contato"
+          index="08. Contato"
           title="Vamos bater um papo?"
           description="Tem uma ideia, um projeto pequeno ou precisa de ajuda com tecnologia? Ficarei feliz em conversar."
         />

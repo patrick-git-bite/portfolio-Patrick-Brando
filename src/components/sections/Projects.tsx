@@ -19,7 +19,7 @@ export default function Projects() {
       <div className="mx-auto max-w-6xl">
         <div ref={headingRef}>
           <SectionHeading
-            index="06. Projetos"
+            index="05. Projetos"
             title="Projetos em destaque"
             description="Projetos da faculdade, do trabalho e por conta própria."
           />

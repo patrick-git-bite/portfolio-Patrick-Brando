@@ -14,7 +14,7 @@ export default function Services({ onNavigate }: ServicesProps) {
     <section id="services" className="border-t border-line px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          index="05. Serviços"
+          index="07. Serviços"
           title="Como posso ajudar"
           description="Ainda sou estudante, então cobro preços justos e sou direto sobre o que consigo entregar."
         />

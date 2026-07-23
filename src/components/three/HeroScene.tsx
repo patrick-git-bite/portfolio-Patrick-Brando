@@ -3,10 +3,9 @@ import * as THREE from "three";
 
 /**
  * Subtle Three.js background for the hero: a rotating wireframe icosahedron
- * with a smaller counter-rotating inner shape, a light particle field with
- * faint constellation lines, reacting to pointer position and speeding up
- * briefly on scroll. Mounted and torn down entirely through the canvas ref
- * callback.
+ * with a smaller counter-rotating inner shape and a light particle field,
+ * reacting to pointer position and speeding up briefly on scroll. Mounted
+ * and torn down entirely through the canvas ref callback.
  */
 export default function HeroScene() {
   const cleanupRef = useRef<() => void>();
@@ -65,31 +64,7 @@ export default function HeroScene() {
       opacity: 0.35,
     });
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-
-    // Faint constellation lines between nearby particles, computed once
-    // since the particles never move relative to each other (only the
-    // group as a whole rotates).
-    const maxDistance = 2;
-    const linePositions: number[] = [];
-    for (let i = 0; i < particleCount; i++) {
-      for (let j = i + 1; j < particleCount; j++) {
-        const dx = positions[i * 3] - positions[j * 3];
-        const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
-        const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
-        if (dx * dx + dy * dy + dz * dz < maxDistance * maxDistance) {
-          linePositions.push(positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2]);
-          linePositions.push(positions[j * 3], positions[j * 3 + 1], positions[j * 3 + 2]);
-        }
-      }
-    }
-    const linesGeometry = new THREE.BufferGeometry();
-    linesGeometry.setAttribute("position", new THREE.Float32BufferAttribute(linePositions, 3));
-    const linesMaterial = new THREE.LineBasicMaterial({ color: 0xf3f1ea, transparent: true, opacity: 0.06 });
-    const constellationLines = new THREE.LineSegments(linesGeometry, linesMaterial);
-
-    const particlesGroup = new THREE.Group();
-    particlesGroup.add(particles, constellationLines);
-    scene.add(particlesGroup);
+    scene.add(particles);
 
     let targetX = 0;
     let targetY = 0;
@@ -163,7 +138,7 @@ export default function HeroScene() {
       innerShape.rotation.x = innerRotX;
 
       particlesRotY -= delta * 0.015 * speed;
-      particlesGroup.rotation.y = particlesRotY;
+      particles.rotation.y = particlesRotY;
 
       renderer.render(scene, camera);
     };
@@ -183,8 +158,6 @@ export default function HeroScene() {
       innerMaterial.dispose();
       particlesGeometry.dispose();
       particlesMaterial.dispose();
-      linesGeometry.dispose();
-      linesMaterial.dispose();
       renderer.dispose();
     };
   }, []);

@@ -31,6 +31,7 @@ export const navItems: NavItem[] = [
   { id: "experience", label: "Experiência" },
   { id: "timeline", label: "Jornada" },
   { id: "projects", label: "Projetos" },
+  { id: "process", label: "Como funciona" },
   { id: "services", label: "Serviços" },
   { id: "contact", label: "Contato" },
 ];

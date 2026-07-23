@@ -20,15 +20,40 @@ export default function Hero({ onNavigate }: HeroProps) {
     );
   }, []);
 
-  return (
-    <section id="home" className="relative flex min-h-screen items-center overflow-hidden px-4 pt-24 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 opacity-70">
-        <ErrorBoundary>
-          <HeroScene />
-        </ErrorBoundary>
-      </div>
+  // Scroll-scrubbed fade/scale-out: the content stays stuck to the viewport
+  // (via CSS sticky) while the taller wrapping section scrolls past behind
+  // it, then hands off smoothly to the next section.
+  const scrubRef = useCallback((node: HTMLElement | null) => {
+    if (!node) return;
+    const content = node.querySelector("[data-hero-scrub]");
+    if (!content) return;
+    gsap.to(content, {
+      scale: 0.92,
+      autoAlpha: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: node,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+      },
+    });
+  }, []);
 
-      <div ref={introRef} className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 md:grid-cols-[1.3fr_0.7fr]">
+  return (
+    <section id="home" ref={scrubRef} className="relative min-h-[160vh]">
+      <div className="sticky top-0 flex min-h-screen items-center overflow-hidden px-4 pt-24 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 opacity-70">
+          <ErrorBoundary>
+            <HeroScene />
+          </ErrorBoundary>
+        </div>
+
+        <div
+          data-hero-scrub
+          ref={introRef}
+          className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 md:grid-cols-[1.3fr_0.7fr]"
+        >
         <div>
           <p data-hero-reveal className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-accent">
             Desenvolvedor Full-Stack, DataCrazy CRM
@@ -85,6 +110,7 @@ export default function Hero({ onNavigate }: HeroProps) {
         className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 font-mono text-[11px] uppercase tracking-widest text-muted sm:block"
       >
         Scroll ↓
+      </div>
       </div>
     </section>
   );
