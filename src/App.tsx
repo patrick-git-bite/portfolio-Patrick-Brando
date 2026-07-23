@@ -5,7 +5,7 @@ import { navItems, experience } from "./lib/data";
 import Nav from "./components/layout/Nav";
 import Footer from "./components/layout/Footer";
 import Cursor from "./components/layout/Cursor";
-import CodeField from "./components/layout/CodeField";
+import SpaceField from "./components/layout/SpaceField";
 import Marquee from "./components/layout/Marquee";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
@@ -27,7 +27,7 @@ export default function App() {
 
   return (
     <div ref={rootRef} className="relative min-h-screen bg-ink text-paper">
-      <CodeField />
+      <SpaceField />
       <div className="relative z-10">
         <Cursor />
         <Toaster theme="dark" position="bottom-right" />
