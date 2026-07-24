@@ -12,7 +12,11 @@ export default function Experience() {
   return (
     <section id="experience" className="border-t border-line px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading index="03. Experiência" title="Experiência profissional" />
+        <SectionHeading
+          index="03. Experiência"
+          title="Experiência profissional"
+          description="Sustentar um CRM em produção é como manter um satélite em órbita: ajustes pequenos e constantes evitam que tudo despenque na reentrada."
+        />
 
         <div ref={headerRef} className="mb-10 flex flex-col gap-6 border border-line p-6 sm:flex-row sm:p-8">
           <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center border border-accent/40 text-accent">

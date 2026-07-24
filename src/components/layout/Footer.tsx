@@ -10,7 +10,6 @@ export default function Footer({ onNavigate }: FooterProps) {
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 max-w-xl">
           <h3 className="font-display text-2xl text-paper">Patrick Brando</h3>
-          <p className="mt-3 text-muted">Desenvolvedor Full-Stack, sempre aprendendo coisa nova.</p>
         </div>
 
         <div className="flex flex-col items-start justify-between gap-6 border-t border-line pt-6 md:flex-row md:items-center">

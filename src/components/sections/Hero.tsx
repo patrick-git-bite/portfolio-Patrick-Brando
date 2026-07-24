@@ -70,7 +70,9 @@ export default function Hero({ onNavigate }: HeroProps) {
 
           <p data-hero-reveal className="mt-8 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
             Trabalho como desenvolvedor Full-Stack na DataCrazy, entre features novas e bugs que precisam de uma
-            investigação mais a fundo. Ubuntu é meu sistema desde que comecei a programar.
+            investigação mais a fundo. Rastrear a origem de um bug lembra astronomia: o efeito só aparece muito depois
+            da causa, como a luz de uma estrela que talvez já nem exista mais. Ubuntu é meu sistema desde que comecei a
+            programar.
           </p>
 
           <div data-hero-reveal className="mt-10 flex flex-col gap-4 sm:flex-row">

@@ -16,7 +16,7 @@ export default function Services({ onNavigate }: ServicesProps) {
         <SectionHeading
           index="07. Serviços"
           title="Como posso ajudar"
-          description="Ainda sou estudante, então cobro preços justos e sou direto sobre o que consigo entregar."
+          description="Quero ser o parceiro técnico que facilita o seu dia a dia. Trabalho com total clareza sobre prazos, escopo e possibilidades, para que você nunca tenha surpresas e saiba exatamente o que esperar de cada etapa. Mais do que apenas escrever código, me importo com a saúde do seu projeto no longo prazo: como a luz constante de uma anã branca, em vez do brilho passageiro de uma nova, garanto entregas consistentes, sustentáveis e prontas para rodar sem dores de cabeça."
         />
 
         <div className="grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">

@@ -21,7 +21,7 @@ export default function Projects() {
           <SectionHeading
             index="05. Projetos"
             title="Projetos em destaque"
-            description="Projetos da faculdade, do trabalho e por conta própria."
+            description="Projetos da faculdade, do trabalho e por conta própria. Cada um é uma estrela no meu mapa: umas brilham como supernovas, outras são a poeira que acabou formando as próximas."
           />
         </div>
 

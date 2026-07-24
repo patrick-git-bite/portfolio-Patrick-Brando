@@ -124,7 +124,7 @@ export default function Process() {
           <SectionHeading
             index="06. Como funciona"
             title="Como funciona"
-            description="Se você quer desenvolver algo comigo, é assim que a gente caminha: do briefing até o projeto no ar."
+            description="Se você quer desenvolver algo comigo, é assim que a gente caminha: do briefing até o projeto no ar, respeitando a órbita de cada etapa antes de ganhar velocidade de escape rumo à próxima."
           />
         </div>
       </section>

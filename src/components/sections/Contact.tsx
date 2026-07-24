@@ -92,7 +92,7 @@ export default function Contact() {
         <SectionHeading
           index="08. Contato"
           title="Vamos bater um papo?"
-          description="Tem uma ideia, um projeto pequeno ou precisa de ajuda com tecnologia? Ficarei feliz em conversar."
+          description="Tem uma ideia, um projeto pequeno ou precisa de ajuda com tecnologia? Mande seu sinal: mesmo a anos-luz de distância, toda boa conversa começa com alguém disposto a escutar o ruído de fundo."
         />
 
         <div className="grid gap-12 md:grid-cols-2">

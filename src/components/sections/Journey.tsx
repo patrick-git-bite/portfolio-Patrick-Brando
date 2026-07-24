@@ -40,7 +40,7 @@ export default function Journey() {
           <SectionHeading
             index="04. Jornada"
             title="Da descoberta à conquista"
-            description="Uma linha do tempo honesta: o que já foi feito e o que ainda está por vir."
+            description="Uma linha do tempo honesta: o que já foi feito e o que ainda está por vir, medido por paralaxe, cada ano observado de um ângulo diferente revela a real distância que já percorri."
           />
         </div>
 

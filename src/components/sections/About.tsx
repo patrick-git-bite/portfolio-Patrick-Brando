@@ -18,14 +18,17 @@ export default function About() {
         <div className="grid gap-12 md:grid-cols-2">
           <div ref={textRef} className="space-y-6 text-lg leading-relaxed text-muted">
             <p>
-              Sou desenvolvedor Full-Stack no <strong className="text-paper">DataCrazy CRM</strong>. Trabalho na sustentação, tanto em features novas quanto em resolução de bugs.
+              Sou desenvolvedor Full-Stack no <strong className="text-paper">DataCrazy CRM</strong>, onde cuido tanto de novas <em>features</em> quanto daquelas correções do dia a dia que garantem que tudo funcione perfeitamente.
             </p>
             <p>
-              Uso <strong className="text-paper">Ubuntu</strong> desde que comecei a programar, tenho conhecimento em várias distribuições de Linux, não só de programação mas também em kernels voltados a servidores.
+              Uso <strong className="text-paper">Ubuntu</strong> desde os meus primeiros passos na programação e curto bastante explorar o universo Linux, de diferentes distribuições a kernels voltados para servidores. Para mim, a sustentação de um sistema é quase como a matéria escura: ninguém vê, mas é exatamente ela que mantém tudo no lugar e em órbita!
             </p>
             <p>
               Tenho certificações <strong className="text-paper">Google Cloud</strong> em dados e infraestrutura, e
               curso <strong className="text-paper">Análise e Desenvolvimento de Sistemas</strong> na Uniftec.
+            </p>
+            <p>
+              Enxergo a arquitetura de software como mecânica orbital: quando um sistema é bem projetado, ele roda estável, sem sobressaltos e sem desperdiçar energia à toa.
             </p>
           </div>
 

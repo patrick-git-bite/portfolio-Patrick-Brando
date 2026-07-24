@@ -11,7 +11,11 @@ export default function Education() {
   return (
     <section id="education" className="border-t border-line px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading index="02. Formação" title="Jornada de aprendizado" />
+        <SectionHeading
+          index="02. Formação"
+          title="Jornada de aprendizado"
+          description="Aprender é acumular massa crítica: cada conceito novo aumenta a gravidade e passa a atrair os próximos com menos esforço."
+        />
 
         <div ref={degreeRef} className="mb-12 flex flex-col gap-4 border border-line p-6 sm:flex-row sm:items-start sm:gap-8 sm:p-8">
           <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center border border-accent/40 text-accent">
